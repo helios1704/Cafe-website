@@ -1,0 +1,31 @@
+{
+    "name": "cafe-website",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon --inspect index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/helios1704/Cafe-website.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/helios1704/Cafe-website/issues"
+    },
+    "homepage": "https://github.com/helios1704/Cafe-website#readme",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "cookie-parser": "^1.4.5",
+        "express": "^4.17.1",
+        "express-handlebars": "^5.2.0",
+        "hbs": "^4.1.1",
+        "mongoose": "^5.10.14"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.6"
+    }
+}
