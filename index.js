@@ -12,12 +12,19 @@ mongoose.connect(process.env.mongo_url);
 //models
 var User = require("./models/user.model");
 
+//route
+var adminAuthRoute = require('./routes/admins/auth/login.admin.route')
+var adminUserRoute = require('./routes/admins/users/user.route')
 var loginRoute = require('./routes/auth/login.route');
 var registerRoute = require('./routes/auth/register.route');
 var logoutRoute = require('./routes/auth/logout.route');
-var authMiddleware = require('./middlewares/auth.middleware');
-const { logout } = require('./controllers/logout.controller');
 const productsRoute = require("./routes/products.route");
+
+//middleware
+var authAdminMiddleware = require('./middlewares/admins/auth.admin.middleware');
+
+const { logout } = require('./controllers/logout.controller');
+
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
@@ -26,7 +33,6 @@ app.use(express.static("public"));
 // app.use(sessionMiddleware);
 
 app.set("views", "./views");
-
 
 app.engine("handlebars", exphbs({ defaultLayout: null, }));
 app.set("view engine", "handlebars");
@@ -41,9 +47,7 @@ app.get('/', async(req, res) => {
             name: user.name
         })
     } else {
-        res.render('index', {
-
-        })
+        res.render('index', {})
     }
 })
 
@@ -51,7 +55,8 @@ app.use('/login', loginRoute);
 app.use('/register', registerRoute);
 app.use('/logout', logoutRoute);
 app.use("/products", productsRoute);
-
+app.use('/admin/users', authAdminMiddleware.requireAuth, adminUserRoute);
+app.use('/admin', adminAuthRoute);
 
 const port = process.env.port || 3000;
 
