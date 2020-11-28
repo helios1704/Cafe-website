@@ -17,15 +17,18 @@ module.exports.index = async (req, res) => {
   console.log(products);
   res.render("products/index");
 };
+
 module.exports.create = async (req, res) => {
   const categories = Category.find();
   res.render("products/create", {
     categories: categories,
   });
 };
+
 module.exports.store = (req, res) => {
   console.log(req);
 };
+
 module.exports.show = async (req, res) => {
   const id = req.params.id;
   const product = await Product.findById(id);
@@ -33,12 +36,14 @@ module.exports.show = async (req, res) => {
     product: product,
   });
 };
+
 module.exports.update = async (req, res) => {
   const id = req.params.id;
   const updateProduct = req.body;
   await Product.update({ _id: ObjectId(id) }, { $set: updateProduct });
   res.redirect("/products");
 };
+
 module.exports.delete = async (req, res) => {
   const id = req.params.id;
   await Product.findByIdAndRemove(id);
