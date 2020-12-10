@@ -56,7 +56,7 @@ app.use("/logout", logoutRoute);
 app.use("/products", productsRoute);
 app.use("/admin/users", authAdminMiddleware.requireAuth, adminUserRoute);
 app.use("/admin", adminAuthRoute);
-app.use("/admin/products", authAdminMiddleware.requireAuth, adminProductRoute);
+app.use("/admin/products", adminProductRoute);
 const port = process.env.port || 3000;
 
 app.listen(port, () => {
