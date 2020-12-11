@@ -1,5 +1,5 @@
-const Product = require("../models/product.model");
-const Category = require("../models/category.model");
+const Product = require("../../../models/product.model");
+const Category = require("../../../models/category.model");
 var ObjectId = require("mongodb").ObjectID;
 
 module.exports.store = (req, res, next) => {
