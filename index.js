@@ -9,7 +9,11 @@ var mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const path = require('path');
 dotenv.config();
-mongoose.connect(process.env.mongo_url);
+// mongoose.connect(process.env.mongo_url);
+mongoose.connect("mongodb://localhost:27017/thuctapcongnhan");
+
+
+
 //models
 var User = require("./models/user.model");
 
