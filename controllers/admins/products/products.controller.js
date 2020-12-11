@@ -1,8 +1,8 @@
 const Product = require("../../../models/product.model");
-
+const Category = require("../../../models/category.model");
 module.exports.index = async (req, res) => {
-  const products = await Product.find();
-  console.log(products);
+  // const products = await Product.find();
+  res.render("admins/products/index", {});
 };
 //data-tables
 module.exports.data_table = async (req, res) => {
@@ -12,7 +12,7 @@ module.exports.data_table = async (req, res) => {
 
 module.exports.create = async (req, res) => {
   const categories = Category.find();
-  res.render("products/create", {
+  res.render("admins/products/create", {
     categories: categories,
   });
 };

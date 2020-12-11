@@ -7,6 +7,7 @@ var cookieParser = require("cookie-parser");
 var exphbs = require("express-handlebars");
 var mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const path = require("path");
 dotenv.config();
 mongoose.connect(process.env.mongo_url);
 //models
@@ -34,7 +35,14 @@ app.use(express.static("public"));
 
 app.set("views", "./views");
 
-app.engine("handlebars", exphbs({ defaultLayout: null }));
+app.engine(
+  "handlebars",
+  exphbs({
+    defaultLayout: null,
+    partialsDir: path.join(__dirname, "views/admins/partials"),
+  })
+);
+
 app.set("view engine", "handlebars");
 app.get("/", async (req, res) => {
   var userId = req.signedCookies.userId;
