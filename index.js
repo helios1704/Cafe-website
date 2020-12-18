@@ -43,7 +43,7 @@ app.engine(
   "handlebars",
   exphbs({
     defaultLayout: null,
-    partialsDir: path.join(__dirname, "views/admins/partials"),
+    partialsDir: path.join(__dirname, "views/admins/partials/"),
   })
 );
 
@@ -62,13 +62,14 @@ app.get("/", async (req, res) => {
   }
 });
 
+
 app.use("/login", loginRoute);
 app.use("/register", registerRoute);
 app.use("/logout", logoutRoute);
 app.use("/products", productsRoute);
 app.use("/admin/users", authAdminMiddleware.requireAuth, adminUserRoute);
 app.use("/admin", adminAuthRoute);
-app.use("/admin/products", adminProductRoute);
+app.use("/admin/products", authAdminMiddleware.requireAuth, adminProductRoute);
 const port = process.env.port || 3000;
 
 app.listen(port, () => {

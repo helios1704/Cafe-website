@@ -6,99 +6,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>The best Coffee</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" />
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-    <link href="../../public/css/all.min.css" rel="stylesheet" />
-    <link href="css/templatemo-style.css" rel="stylesheet" />
+    <link href="css/login.css" rel="stylesheet" />
+    {{!--
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script> --}}
+    <link rel="icon" href="image/logo.jpg" type="image">
 </head>
-<!--
-
-Simple House
-
-https://templatemo.com/tm-539-simple-house
-
--->
 
 <body>
-    <div class="container">
-        <main>
-            <header class="row tm-welcome-section"></header>
-                <h2 class="col-12 text-center tm-section-title">Register page</h2>
-            </header>
+    <main>
+        <h2>Welcome to The best Coffee</h2>
+        <div class="container" id="container">
+            <div class="form-container sign-in-container">
+                <form action="/register" method="post">
+                    <h1>Tạo tài khoản</h1>
+                    {{#if errors}}
+                    {{#each errors}}
+                    <p class="alert alert-danger">{{this}}</p>
+                    {{/each}}
+                    {{/if}}
+                    <input type="text" name="name" placeholder="Name" required="" />
+                    <input type="email" name="email" placeholder="Email" required="" />
+                    <input type="password" rows="5" name="password" placeholder="Password" required="">
+                    <input type="text" name="address" placeholder="Address" required="" />
+                    <input type="text" name="phone" placeholder="Phone" required="" />
+                    <button type="submit">Đăng ký</button>
+                </form>
+            </div>
+            {{!-- <div class="form-container ">
 
-            <div class="tm-container-inner-2 tm-contact-section">
-                <div class="row">
-                    <div class="col-md-6">
-                        <form action="/register" method="post" class="tm-contact-form">
-                        <div style="display: flex;">
-                         <i class="fas fa-user"></i>
-                            <div class="form-group">
-                                <input type="text" name="name" class="form-control" placeholder="Name" required="" />
-                            </div>
-                        </div>
-                            <div class="form-group">
-                                <input type="email" name="email" class="form-control" placeholder="Email" required="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="password" rows="5" name="password" class="form-control" placeholder="Password" required=""></textarea>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" name="address" class="form-control" placeholder="Address" required="" />
-                            </div>
-                             <div class="form-group">
-                                <input type="text" name="phone" class="form-control" placeholder="Phone" required="" />
-                            </div>
-                            <div class="form-group tm-d-flex">
-                                <button type="submit" class="tm-btn tm-btn-success tm-btn-right">
-					            Register
-					          </button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="tm-address-box">
-                            <h4 class="tm-info-title tm-text-success">Our Address</h4>
-                            <address>
-								120 Nguyễn Lương Bằng, quận Liên Chiểu, Thành phố Đà Nẵng
-							</address>
-                            <a href="tel:080-090-0110" class="tm-contact-link">
-                                <i class="fas fa-phone tm-contact-icon"></i>080-090-0110
-                            </a>
-                            <a href="mailto:info@company.co" class="tm-contact-link">
-                                <i class="fas fa-envelope tm-contact-icon"></i>thebestcf@company.co
-                            </a>
-                            <div class="tm-contact-social">
-                                <a href="https://fb.com/templatemo" class="tm-social-link"><i class="fab fa-facebook tm-social-icon"></i></a>
-                                <a href="#" class="tm-social-link"><i class="fab fa-twitter tm-social-icon"></i></a>
-                                <a href="#" class="tm-social-link"><i class="fab fa-instagram tm-social-icon"></i></a>
-                            </div>
-                        </div>
+                <form action="/login" method="POST">
+                    <h1>Đăng nhập</h1>
+                    {{#if errors}}
+                    {{#each errors}}
+                    <p class="alert alert-danger">{{this}}</p>
+                    {{/each}}
+                    {{/if}}
+                    <input type="email" placeholder="Email" name="email" value={{#if values}} {{values.email}} {{/if}}>
+                    <input type="password" placeholder="Password" name="password" />
+                    <a href="#">Quên mật khẩu ư?</a>
+                    <button type="submit">Đăng nhập</button>
+                </form>
+            </div> --}}
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-right">
+                        <h1>Welcome Back!</h1>
+                        <p>Để tiếp tục đồng hành với chúng mình, hãy đăng nhập nào ^^</p>
+                        <a href="/login"> <button class="ghost" id="signUp">Đăng nhập</button></a>
                     </div>
                 </div>
+
+
+                {{!-- <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Để tiếp tục đồng hành với chúng mình, hãy đăng nhập nào ^^</p>
+                    <button class="ghost" id="signIn">Đăng nhập</button>
+                </div> --}}
+
             </div>
+        </div>
+    </main>
 
-            <!-- How to change your own map point
-	1. Go to Google Maps
-	2. Click on your location point
-	3. Click "Share" and choose "Embed map" tab
-	4. Copy only URL and paste it within the src="" field below
--->
+    <footer>
+        <p>Copyright &copy; 2020 The best Coffee
 
 
-        </main>
-        <footer class="tm-footer text-center">
-            <p>Copyright &copy; 2020 The best Coffee
-        </footer>
+    </footer>
     </div>
     <script src="js/jquery.min.js"></script>
     <script src="js/parallax.min.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/addtocart.js"></script>
+    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+    {{!--
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             var acc = document.getElementsByClassName("accordion");
             var i;
 
             for (i = 0; i < acc.length; i++) {
-                acc[i].addEventListener("click", function() {
+                acc[i].addEventListener("click", function () {
                     this.classList.toggle("active");
                     var panel = this.nextElementSibling;
                     if (panel.style.maxHeight) {
@@ -109,7 +100,7 @@ https://templatemo.com/tm-539-simple-house
                 });
             }
         });
-    </script>
+    </script> --}}
 </body>
 
 </html>
