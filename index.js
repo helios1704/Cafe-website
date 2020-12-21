@@ -23,7 +23,7 @@ const productsRoute = require("./routes/products.route");
 
 //middleware
 var authAdminMiddleware = require('./middlewares/admins/auth.admin.middleware');
-
+var authMiddleware = require('./middlewares/auth.middleware')
 const { logout } = require('./controllers/logout.controller');
 
 

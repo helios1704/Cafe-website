@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var User = require('../../models/user.model');
+var Role = require('../../models/role.model');
 var bcrypt = require('bcrypt');
 const saltRounds = 10;
 module.exports.register = async(req, res, next) => {
@@ -12,7 +13,10 @@ module.exports.register = async(req, res, next) => {
         arrError.push("Email is required!");
     } else if (!req.body.password) {
         arrError.push("Password is required!");
+    } else if (!req.body.password) {
+        arrError.push("Phone is phone!");
     } else {
+        var roles = await Role.findOne({ name: "user" })
         var hashPassword = null;
         bcrypt.hash(req.body.password, saltRounds, async(err, hash) => {
             hashPassword = hash;
@@ -21,7 +25,8 @@ module.exports.register = async(req, res, next) => {
                 password: hashPassword,
                 name: req.body.name,
                 phone: req.body.phone,
-                address: req.body.address
+                address: req.body.address,
+                role_id: roles._id
             }
             user = await User.create(temp);
             console.log(user)
@@ -34,7 +39,7 @@ module.exports.register = async(req, res, next) => {
         // return;
     }
     if (arrError.length) {
-        res.render('auth/login', {
+        res.render('auth/register', {
             errors: arrError,
             values: req.body
         })

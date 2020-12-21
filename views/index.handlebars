@@ -30,19 +30,19 @@
                             <li class="tm-nav-li"><a href="about.html" class="tm-nav-link">Về chúng tôi</a></li>
                             <li class="tm-nav-li"><a href="contact.html" class="tm-nav-link">Liên hệ</a></li>
                             {{#if name}}
-                               <li class="tm-nav-li" style="color: black;">
-                               Hi  {{name}}!
-                                </li>
-                                   <li class="tm-nav-li"><a href="/logout" class="tm-nav-link">Đăng xuất</a></li>
+                            <li class="tm-nav-li" style="color: black;">
+                                Hi {{name}}!
+                            </li>
+                            <li class="tm-nav-li"><a href="/logout" class="tm-nav-link">Đăng xuất</a></li>
                             {{else}}
-                                <li class="tm-nav-li"><a href="/login" class="tm-nav-link">Đăng nhập</a></li>
+                            <li class="tm-nav-li"><a href="/login" class="tm-nav-link">Đăng nhập</a></li>
 
                             {{/if}}
                             <li class="cart">
                                 <a href="/cart" class="tm-nav-link">
                                     <ion-icon name="basket"></ion-icon><span>0</span>
-                                </a></li>
-                       
+                                </a>
+                            </li>
                         </ul>
                     </nav>
                 </div>
