@@ -25,6 +25,7 @@ var registerRoute = require("./routes/auth/register.route");
 var logoutRoute = require("./routes/auth/logout.route");
 const productsRoute = require("./routes/products.route");
 const adminProductRoute = require("./routes/admins/products/products.route");
+const historyRoute = require("./routes/users/history.route")
 
 //middleware
 var authAdminMiddleware = require("./middlewares/admins/auth.admin.middleware");
@@ -67,6 +68,7 @@ app.use("/login", loginRoute);
 app.use("/register", registerRoute);
 app.use("/logout", logoutRoute);
 app.use("/products", productsRoute);
+app.use("/histories", historyRoute);
 app.use("/admin/users", authAdminMiddleware.requireAuth, adminUserRoute);
 app.use("/admin", adminAuthRoute);
 app.use("/admin/products", authAdminMiddleware.requireAuth, adminProductRoute);
