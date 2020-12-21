@@ -3,15 +3,20 @@ var User = require('../../models/user.model');
 var Role = require('../../models/role.model');
 var bcrypt = require('bcrypt');
 const saltRounds = 10;
+
 module.exports.register = async(req, res, next) => {
     console.log(req.body);
+    var roles = await Role.findOne({ name: "user" })
     var arrError = [];
     var user = null;
     if (!req.body.name) {
         arrError.push("Name is required!");
     } else if (!req.body.email) {
         arrError.push("Email is required!");
-    } else if (!req.body.password) {
+    } else if(user = await User.findOne({email:req.body.email})){
+        arrError.push("Email is exist!");
+    }
+    else if (!req.body.password) {
         arrError.push("Password is required!");
     } else if (!req.body.password) {
         arrError.push("Phone is phone!");

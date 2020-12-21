@@ -15,7 +15,23 @@
 <body>
     <main>
         <h2>Welcome to The best Coffee</h2>
-        <div class="container" id="container"  style="height: 80vh;">
+        <div class="container" id="container">
+            {{!-- <div class="form-container sign-up-container">
+                <form action="/register" method="">
+                    <h1>Tạo tài khoản</h1>
+                    {{#if errors}}
+                        {{#each errors}}
+                            <p class="alert alert-danger">{{this}}</p>
+                        {{/each}}
+                    {{/if}}
+                    <input type="text" name="name" placeholder="Name" required="" />
+                    <input type="email" name="email" placeholder="Email" required="" />
+                    <input type="password" rows="5" name="password" placeholder="Password" required="">
+                    <input type="text" name="address" placeholder="Address" required="" />
+                    <input type="text" name="phone" placeholder="Phone" required="" />
+                    <button type="submit">Đăng ký</button>
+                </form>
+            </div> --}}
             <div class="form-container sign-in-container">
                 <form action="/login" method="POST">
                     <h1>Đăng nhập</h1>
@@ -43,7 +59,7 @@
                     <div class="overlay-panel overlay-right">
                         <h1>Chào bạn ^^</h1>
                         <p>Điền những thông tin bên dưới và bắt đầu cuộc hành trình với chúng mình nào</p>
-                         <a href="/register"> <button class="ghost" id="signUp">Đăng ký</button></a>
+                       <a href="/register"> <button class="ghost" id="signUp">Đăng ký</button></a>
                     </div>
                 </div>
             </div>

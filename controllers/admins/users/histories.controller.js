@@ -1,4 +1,4 @@
-const User = require("../../../models/user.model");
+const History = require("../../../models/history.model");
 
 module.exports.index = async (req, res) => {
   var userId = req.signedCookies.userId;
@@ -16,3 +16,4 @@ module.exports.data_table = async (req, res) => {
   };
   res.json(temp);
 };
+

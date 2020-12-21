@@ -7,25 +7,36 @@ var cookieParser = require("cookie-parser");
 var exphbs = require("express-handlebars");
 var mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const path = require('path');
+const path = require("path");
 dotenv.config();
-mongoose.connect(process.env.mongo_url);
+// mongoose.connect(process.env.mongo_url);
+mongoose.connect("mongodb://localhost:27017/thuctapcongnhan");
+
+
+
 //models
 var User = require("./models/user.model");
 
 //route
-var adminAuthRoute = require('./routes/admins/auth/login.admin.route')
-var adminUserRoute = require('./routes/admins/users/user.route')
-var loginRoute = require('./routes/auth/login.route');
-var registerRoute = require('./routes/auth/register.route');
-var logoutRoute = require('./routes/auth/logout.route');
+var adminAuthRoute = require("./routes/admins/auth/login.admin.route");
+var adminUserRoute = require("./routes/admins/users/user.route");
+var loginRoute = require("./routes/auth/login.route");
+var registerRoute = require("./routes/auth/register.route");
+var logoutRoute = require("./routes/auth/logout.route");
 const productsRoute = require("./routes/products.route");
+const adminProductRoute = require("./routes/admins/products/products.route");
+const historyRoute = require("./routes/users/history.route")
 
 //middleware
+<<<<<<< HEAD
 var authAdminMiddleware = require('./middlewares/admins/auth.admin.middleware');
 var authMiddleware = require('./middlewares/auth.middleware')
 const { logout } = require('./controllers/logout.controller');
+=======
+var authAdminMiddleware = require("./middlewares/admins/auth.admin.middleware");
+>>>>>>> 90cd1f6aaf1a659f200d564e37902c57f6afaf4f
 
+const { logout } = require("./controllers/logout.controller");
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
@@ -35,37 +46,40 @@ app.use(express.static("public"));
 
 app.set("views", "./views");
 
-app.engine("handlebars", exphbs({
+app.engine(
+  "handlebars",
+  exphbs({
     defaultLayout: null,
-    partialsDir: path.join(__dirname, 'views/admins/partials')
-}));
-
+    partialsDir: path.join(__dirname, "views/admins/partials/"),
+  })
+);
 
 app.set("view engine", "handlebars");
-app.get('/', async(req, res) => {
+app.get("/", async (req, res) => {
+  var userId = req.signedCookies.userId;
+  var user = await User.findById(userId);
 
-    var userId = req.signedCookies.userId;
-    var user = await User.findById(userId)
+  if (user) {
+    console.log(user.name);
+    res.render("index", {
+      name: user.name,
+    });
+  } else {
+    res.render("index", {});
+  }
+});
 
-    if (user) {
-        console.log(user.name)
-        res.render('index', {
-            name: user.name
-        })
-    } else {
-        res.render('index', {})
-    }
-})
 
-app.use('/login', loginRoute);
-app.use('/register', registerRoute);
-app.use('/logout', logoutRoute);
+app.use("/login", loginRoute);
+app.use("/register", registerRoute);
+app.use("/logout", logoutRoute);
 app.use("/products", productsRoute);
-app.use('/admin/users', authAdminMiddleware.requireAuth, adminUserRoute);
-app.use('/admin', adminAuthRoute);
-
+app.use("/histories", historyRoute);
+app.use("/admin/users", authAdminMiddleware.requireAuth, adminUserRoute);
+app.use("/admin", adminAuthRoute);
+app.use("/admin/products", authAdminMiddleware.requireAuth, adminProductRoute);
 const port = process.env.port || 3000;
 
 app.listen(port, () => {
-    console.log("Example Listen at: " + port);
+  console.log("Example Listen at: " + port);
 });

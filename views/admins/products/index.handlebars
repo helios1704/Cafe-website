@@ -1,0 +1,73 @@
+{{> header}}
+<!-- Content Wrapper. Contains page content -->
+
+<div class="content-wrapper pt-2">
+    <!-- Content Header (Page header) -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-12">
+                    <table class="table table-bordered" id="products-table">
+                        <thead>
+                            <tr>
+                                <th>_id</th>
+                                <th>Avatar</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Price</th>
+                                 <th>create</th>
+                            </tr>
+                        </thead>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- /.content-wrapper -->
+
+{{> footer}}
+
+<script>
+    $(document).ready(function () {
+        $('#products-table').DataTable({
+            drawCallback: function () {
+            },
+            ordering: true,
+            searching: false,
+            pageLength: 5,
+            paging: true,
+            lengthChange: false,
+            autoWidth: false,
+            processing: true,
+            columnDefs: [
+                {
+
+                    "targets": [0],
+                    "visible": false,
+                    "searchable": false
+                },
+            ],
+            ajax: {
+                data: "json",
+                url: "/admin/products/data-tables",
+                type: 'GET',
+            },
+            columns: [
+                { data: '_id', name: '_id' },
+                {
+                    data: 'image', render: function (data) {
+                        //return '<img src="' + data + '" class="image" width="50" height="50"/>'
+                        return '<img src="http://dummyimage.com/196x208.jpg/dddddd/000000" class="image" width="50" height="50"/>'
+                        //return '<img src="image/user_image/' + data + '" class="avatar" width="50" height="50"/>';
+                    }
+                },
+                { data: 'name', name: 'name' },
+                { data: 'description', name: 'description' },
+                { data: 'price', name: 'price' }
+            ],
+        })
+    });
+
+</script>

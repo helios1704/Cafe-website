@@ -7,32 +7,50 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>The best Coffee</title>
     <link href="css/login.css" rel="stylesheet" />
-    {{!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> --}}
+    {{!--
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script> --}}
     <link rel="icon" href="image/logo.jpg" type="image">
 </head>
 
 <body>
     <main>
         <h2>Welcome to The best Coffee</h2>
-        <div class="container" id="container" style="height: 80vh;">
+        <div class="container" id="container">
             <div class="form-container sign-in-container">
                 <form action="/register" method="post">
                     <h1>Tạo tài khoản</h1>
                     {{#if errors}}
-                        {{#each errors}}
-                            <p class="alert alert-danger">{{this}}</p>
-                        {{/each}}
+                    {{#each errors}}
+                    <p class="alert alert-danger">{{this}}</p>
+                    {{/each}}
                     {{/if}}
-                    <input type="text" name="name" placeholder="Name" />
-                    <input type="email" name="email" placeholder="Email" />
-                    <input type="password" rows="5" name="password" placeholder="Password">
-                    <input type="text" name="address" placeholder="Address" />
-                    <input type="text" name="phone" placeholder="Phone" />
+                    <input type="text" name="name" placeholder="Name" required="" />
+                    <input type="email" name="email" placeholder="Email" required="" />
+                    <input type="password" rows="5" name="password" placeholder="Password" required="">
+                    <input type="text" name="address" placeholder="Address" required="" />
+                    <input type="text" name="phone" placeholder="Phone" required="" />
                     <button type="submit">Đăng ký</button>
                 </form>
             </div>
+            {{!-- <div class="form-container ">
 
+                <form action="/login" method="POST">
+                    <h1>Đăng nhập</h1>
+                    {{#if errors}}
+                    {{#each errors}}
+                    <p class="alert alert-danger">{{this}}</p>
+                    {{/each}}
+                    {{/if}}
+                    <input type="email" placeholder="Email" name="email" value={{#if values}} {{values.email}} {{/if}}>
+                    <input type="password" placeholder="Password" name="password" />
+                    <a href="#">Quên mật khẩu ư?</a>
+                    <button type="submit">Đăng nhập</button>
+                </form>
+            </div> --}}
             <div class="overlay-container">
                 <div class="overlay">
                     <div class="overlay-panel overlay-right">
@@ -41,6 +59,14 @@
                         <a href="/login"> <button class="ghost" id="signUp">Đăng nhập</button></a>
                     </div>
                 </div>
+
+
+                {{!-- <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Để tiếp tục đồng hành với chúng mình, hãy đăng nhập nào ^^</p>
+                    <button class="ghost" id="signIn">Đăng nhập</button>
+                </div> --}}
+
             </div>
         </div>
     </main>
@@ -53,10 +79,28 @@
     </div>
     <script src="js/jquery.min.js"></script>
     <script src="js/parallax.min.js"></script>
-    {{!-- <script src="js/login.js"></script> --}}
+    <script src="js/login.js"></script>
     <script src="js/addtocart.js"></script>
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+    {{!--
+    <script>
+        $(document).ready(function () {
+            var acc = document.getElementsByClassName("accordion");
+            var i;
 
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    }
+                });
+            }
+        });
+    </script> --}}
 </body>
 
 </html>

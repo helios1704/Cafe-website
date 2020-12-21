@@ -6,6 +6,7 @@ var BillSchema = new mongoose.Schema({
     products: Array,
 });
 
-var Bill = mongoose.model('Bill', userSchema, 'bills');
+var Bill = mongoose.model('Bill', BillSchema, 'bills');
+
 
 module.exports = Bill;
