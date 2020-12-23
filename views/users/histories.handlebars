@@ -3,7 +3,9 @@
 <p>Don hang thu: </p>
     {{#each this}}
         {{#each this.products}}
-            <p>{{this}}</p>
+            {{#each this}}
+                {{this.name}}
+            {{/each}}
         {{/each}}
     {{this.date}}
     {{this.totalPrice}}
