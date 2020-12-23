@@ -1,1 +1,11 @@
-{{bills}}
+{{!-- {{bills.bills}} --}}
+{{#each bills}}
+<p>Don hang thu: </p>
+    {{#each this}}
+        {{#each this.products}}
+            <p>{{this}}</p>
+        {{/each}}
+    {{this.date}}
+    {{this.totalPrice}}
+    {{/each}}
+{{/each}}

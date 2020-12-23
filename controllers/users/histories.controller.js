@@ -10,12 +10,13 @@ module.exports.index = async (req, res) => {
   histories.forEach(element => bill_id.push(element.bill_id))
   var bills  = await Bill.find({_id:bill_id})
 
-  bills.forEach(async (element) => {
-    var products = await Product.find({_id: element.products})
+  bills.forEach( async (element) => {
+    var products =  await Product.find({_id: element.products})
     element.products = products;
-    console.log(products);
-  })
+  },)
+ 
   res.render("users/histories", {
     bills: bills,
   });
+
 };  
