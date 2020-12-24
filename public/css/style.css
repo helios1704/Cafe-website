@@ -121,7 +121,6 @@ html {
 
 .total{
   width: 10%;
-  border-bottom: 1px solid lightgrey;
   display: flex;
   align-items: center;
 }
@@ -167,13 +166,15 @@ html {
 
 .buy{
   background-color: #ed9f45;
-  border: none;
+  border: 5px black;
   color: white;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
 
 .pay {
@@ -233,7 +234,162 @@ html {
   cursor: pointer;
 }
 
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: rgb(238, 178, 98);
+  color: #fff;
+  text-align: center;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgb(231, 154, 39) transparent transparent transparent;
+}
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
 /* -------------------------------------cart page-------------------- */
+
+/*-----------------------------purchase history page------------------*/
+.histories-container{
+  justify-content: space-around;
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 100%;
+  max-width: 1500px;
+}
+
+.histories-header{
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  justify-content: flex-start;
+  border-bottom: 4px solid lightgrey;
+  margin: 0 auto;
+}
+
+.history{
+  background-color: #b4754b;
+  width: 100%;
+  float: left;
+  display: flex;
+  align-items: center;
+  padding: 20px 0px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.history .date-title{
+  margin-left: 100px;
+  width: 35%;
+}
+
+.history .product-title{
+  width: 35%;
+}
+
+.history .total-title{
+  width: 10%;
+}
+
+.histories{
+  background-color: #c9a186;
+  max-width: 1500px;
+  width: 100%;
+  flex-wrap: wrap;
+  cursor: pointer;
+}
+.purchased-container{
+  margin: auto;
+  background-color: #b87f58;
+  width: 90%;
+  max-width: 1500px;
+  align-items:center;
+  display: flex;
+  border: 5px black;
+}
+
+.date{
+  width: 45%;
+  font-weight: 500;
+  font-family: 'Dosis', sans-serif;
+  color: white;
+  font-size: 20px;
+}
+.total-price{
+  width: 10%;
+  font-weight: 500;
+  font-family: 'Dosis', sans-serif;
+  color: white;
+  font-size: 20px;
+}
+
+.product-name{
+  width: 45%;
+  font-weight: 500;
+  font-family: 'Dosis', sans-serif;
+  color: white;
+  font-size: 20px;
+}
+.button{
+  background-color: #ed9f45;
+  border: 5px black;
+  font-weight: 500;
+  font-family: 'Dosis', sans-serif;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button-active,
+.button:hover{
+  border: 2px solid rgb(0, 0, 0);
+}
+
+/*-----------------------------purchase history page -----------------*/
 .tm-container-inner,
 .tm-container-inner-2 {
   padding-left: 15px;
