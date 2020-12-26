@@ -23,26 +23,27 @@
 							</a>
 						</div>
 					</div>
-					<nav class="tm-nav">
+				    <nav class="tm-nav">
                         <ul class="tm-nav-ul">
-                            <li class="tm-nav-li"><a href="index.html" class="tm-nav-link">Sản Phẩm</a></li>
+                            <li class="tm-nav-li"><a href="index.html" class="tm-nav-link active">Sản Phẩm</a></li>
                             <li class="tm-nav-li"><a href="about.html" class="tm-nav-link">Về chúng tôi</a></li>
                             <li class="tm-nav-li"><a href="contact.html" class="tm-nav-link">Liên hệ</a></li>
                             {{#if name}}
-                               <li class="tm-nav-li" style="color: black;">
-                               Hi  {{name}}!
-                                </li>
-                                   <li class="tm-nav-li"><a href="/logout" class="tm-nav-link">Đăng xuất</a></li>
+                            <li class="tm-nav-li" style="color: black;">
+                                Hi {{name}}!
+                            </li>
+                            <li class="tm-nav-li"><a href="/logout" class="tm-nav-link">Đăng xuất</a></li>
                             {{else}}
-                                <li class="tm-nav-li"><a href="/login" class="tm-nav-link">Đăng nhập</a></li>
+                            <li class="tm-nav-li"><a href="/login" class="tm-nav-link">Đăng nhập</a></li>
 
                             {{/if}}
                             <li class="cart">
                                 <a href="/cart" class="tm-nav-link">
                                     <ion-icon name="basket"></ion-icon><span>0</span>
-                                </a></li>
+                                </a>
+                            </li>
                         </ul>
-                    </nav>	
+                    </nav>
 				</div>
 			</div>
 		</div>
@@ -56,16 +57,22 @@
                 <h3 class = "total-title"> Tổng </h3>	
 		    </div>
             <table class="histories">
+                {{#each bills}}
                 <tr class="purchased-container">
-                    {{#each bills}}
                         {{#each this}}
-                            <td class = "date">{{this.date}}</td>
+                            {{#if this.date}}
+                                <td class = "date">{{this.date}}</td>
+                            {{/if}}
                             {{#each this.products}}
-                                {{#each this}}
-                                    <td class = "product-name">{{this.name}}</td>
-                                {{/each}}
+                                    {{#each this}}
+                                        {{#if this.name}}
+                                            <td class = "product-name">{{this.name}}</td>
+                                        {{/if}}
+                                    {{/each}}
                             {{/each}}
-                            <td class = "total-price">{{this.totalPrice}}</td> 
+                            {{#if this.totalPrice}}
+                                <td class = "total-price">{{this.totalPrice}}</td> 
+                            {{/if}}
                         {{/each}}
                         <td>
                             <button class="button" id="myBtn">Đặt lại</button>
@@ -77,11 +84,13 @@
                                     </div>
                                     <div class="pay-body">
                                         {{#with this}}
-                                            <h4 class ="date"> {{this.date}} </h4>
+                                            <h4 class ="date"> {{~this.date~}} </h4>
                                             {{#each this.products}}
-                                                {{#each this}}
-                                                    <h4 class = "product-name">{{this.name}} </h4>
-                                                {{/each}}
+                                                {{#if this}}
+                                                    {{#each this}}
+                                                        <h4 class = "product-name">{{this.name}} </h4>
+                                                    {{/each}}
+                                                {{/if}}
                                             {{/each}}
                                         {{/with}}
                                     </div>
@@ -94,8 +103,8 @@
                         </td>
                     {{else}}
                         <p>Không có lịch sử giao dịch</p>
-                    {{/each}}
                 </tr>
+                {{/each}}
 			</table>
 		</div>
 		<footer class="tm-footer text-center">
