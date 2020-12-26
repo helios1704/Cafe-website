@@ -28,13 +28,7 @@ const adminProductRoute = require("./routes/admins/products/products.route");
 const historyRoute = require("./routes/users/history.route")
 
 //middleware
-<<<<<<< HEAD
-var authAdminMiddleware = require('./middlewares/admins/auth.admin.middleware');
-var authMiddleware = require('./middlewares/auth.middleware')
-const { logout } = require('./controllers/logout.controller');
-=======
 var authAdminMiddleware = require("./middlewares/admins/auth.admin.middleware");
->>>>>>> 90cd1f6aaf1a659f200d564e37902c57f6afaf4f
 
 const { logout } = require("./controllers/logout.controller");
 
