@@ -1,5 +1,7 @@
 const History = require("../../models/history.model");
 const Bill = require("../../models/bill.model");
+const Product = require("../../models/product.model");
+const { json } = require("body-parser");
 module.exports.index = async (req, res) => {
   var userId = req.signedCookies.userId;
   console.log(userId);
@@ -8,14 +10,13 @@ module.exports.index = async (req, res) => {
   histories.forEach(element => bill_id.push(element.bill_id))
   var bills  = await Bill.find({_id:bill_id})
 
-  // var bills = []
-  // bill_id.forEach(async (element) => {
-  //   console.log(element)
-  //   var bill = await Bill.find({_id : element});
-  //   console.log(bill)
-  //   bills.push(bill)
-  // });
+  bills.forEach( async (element) => {
+    var products =  await Product.find({_id: element.products})
+    element.products = products;
+  },)
+ 
   res.render("users/histories", {
     bills: bills,
   });
+
 };  
