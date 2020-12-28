@@ -15,7 +15,7 @@ module.exports.requireAuth = async(req, res, next) => {
         return;
     } else {
         role = await Role.findOne({ name: "admin" });
-        console.log(user);
+        // console.log(user);
         if (user.role_id != role._id) {
             res.clearCookie('adminId');
             res.redirect('/admin/login');

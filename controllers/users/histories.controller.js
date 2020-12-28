@@ -21,5 +21,4 @@ module.exports.index = async (req, res) => {
     bills: bills,
     name:userName
   });
-
 };  

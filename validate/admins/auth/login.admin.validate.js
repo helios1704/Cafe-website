@@ -26,7 +26,7 @@ module.exports.postLogin = async(req, res, next) => {
                 return;
             }
         }
-        console.log(user);
+        // console.log(user);
         if (user.role_id == roles._id) {
             bcrypt.compare(req.body.password, user.password, (err, result) => {
                 if (result == true) {
