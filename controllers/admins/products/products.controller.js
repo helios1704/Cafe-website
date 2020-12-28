@@ -1,5 +1,8 @@
 const Product = require("../../../models/product.model");
 const Category = require("../../../models/category.model");
+const { ObjectId } = require('mongodb');
+
+
 module.exports.index = async (req, res) => {
   // const products = await Product.find();
   res.render("admins/products/index", {});
@@ -14,12 +17,24 @@ module.exports.create = async (req, res) => {
   const categories = await Category.find();
   console.log(categories);
   res.render("admins/products/create", {
-   // categories: categories,
+    categories: categories,
   });
 };
 
-module.exports.store = (req, res) => {
-  console.log(req);
+module.exports.store = async (req, res) => {
+  req.body.image = req.file.path.split("\\").slice(1).join("/");
+  req.body.category_id = ObjectId(req.body.category_id);
+  console.log(req.body);
+  const products = {
+    name: req.body.name,
+    description: req.body.description,
+    price: req.body.price,
+    category_id: req.body.category_id,
+    image: req.body.image
+  }
+  await Product.create(products);
+  // db.get("products").push(req.body).write();
+  res.redirect("products");
 };
 
 module.exports.show = async (req, res) => {

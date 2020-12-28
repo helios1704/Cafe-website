@@ -7,6 +7,8 @@ const controller = require("../../../controllers/admins/users/users.controller")
 // var upload = multer({ dest: "public/uploads/" });
 route.get("/", controller.index);
 route.get("/data-table", controller.data_table);
+route.get("/histories/:id", controller.showHistories);
+route.get("/histories/id/data-table", controller.data_tableHistories);
 // route.get("/create", controller.create);
 // route.post("/", upload.single("image"), validate.store, controller.store);
 // route.get("/:id", controller.show);

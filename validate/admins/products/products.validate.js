@@ -3,15 +3,16 @@ const Category = require("../../../models/category.model");
 var ObjectId = require("mongodb").ObjectID;
 
 module.exports.store = (req, res, next) => {
-  console.log(req.file);
+  console.log(req.body);
   let errors = [];
   if (!req.body.name) {
     errors.push("Name is required");
   }
-  if (checkInDatabase("name", req.body.name)) {
-    errors.push("This name is already");
-  }
-  if (!req.body.image) {
+  console.log(checkInDatabase("name", req.body.name));
+  // if (checkInDatabase("name", req.body.name)) {
+  //   errors.push("This name is already");
+  // }
+  if (!req.file) {
     errors.push("Image is required");
   }
   if (!req.body.description) {
@@ -44,5 +45,6 @@ let checkInDatabase = async (key, value) => {
   if (key === "category_id") {
     return await Category.findById({ _id: ObjectId(value) });
   }
-  return await Product.find({ key: value });
+  const products = await Product.find({ key: value });
+  return products;
 };

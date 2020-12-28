@@ -20,7 +20,7 @@
                             <label for="price" class="form-label">Price</label>
                             <input type="text" class="form-control" id="price" name="price">
                         </div>
-                        <div class="mb-3 form-check p-0 d-flex align-items-center">
+                        <div class="mb-3 form-check p-0 d-flex align-items-center w-100">
                             <div class="w-50">
                                 <div class="image" id="image"></div>
                             </div>
@@ -39,11 +39,13 @@
                         </div>
                         <div class="mb-3">
                             <select class="custom-select" name="category_id">
-                                {{#each categories}}
+                                {{!-- {{#each categories}}
 
                                 <option value="{{id}}">{{name}}</option>
 
-                                {{/each}}
+                                {{/each}} --}}
+                                <option value="5fb1f5584555c7062965fc6a">Cold Brew</option>
+                                <option value="5fb1f51e4555c7062965fc5c">Coffee</option>
                                 {{!-- <option selected>Open this select menu</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>

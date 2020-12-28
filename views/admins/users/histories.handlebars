@@ -11,15 +11,10 @@
             <thead>
               <tr>
                 <th>_id</th>
-                <th>Avatar</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Address</th>
-                <th>Phone</th>
-                <th>Histories</th>
+                <th>Date</th>
+                <th>totalPrice</th>
               </tr>
             </thead>
-
           </table>
         </div>
       </div>
@@ -44,7 +39,6 @@
       processing: true,
       columnDefs: [
         {
-
           "targets": [0],
           "visible": false,
           "searchable": false
@@ -52,21 +46,13 @@
       ],
       ajax: {
         data: "json",
-        url: "/admin/users/data-table",
+        url: "/admin/users/histories/id/data-table",
         type: 'GET',
       },
       columns: [
         { data: '_id', name: '_id' },
         {
-          data: 'avatar', render: function (data) {
-            return '<img src="' + data + '" class="avatar" width="50" height="50"/>'
-            //return '<img src="image/user_image/' + data + '" class="avatar" width="50" height="50"/>';
-          }
-        },
-        { data: 'name', name: 'name' },
-        { data: 'email', name: 'email' },
-        {
-          data: 'address', render: function (data) {
+          data: 'date', render: function (data) {
             if (data) {
               return data;
             }
@@ -75,20 +61,16 @@
             }
           }
         },
+     
+
         {
-          data: 'phone', render: function (data) {
+          data: 'totalPrice', render: function (data) {
             if (data) {
               return data;
             }
             else {
               return "";
             }
-          }
-        },
-        {
-          data: '_id', render: function (data) {
-            return '<a href="/admin/users/histories/'+data+'"><button class="btn btn-primary">Show</button></a>'
-            //return '<img src="image/user_image/' + data + '" class="avatar" width="50" height="50"/>';
           }
         },
       ],
