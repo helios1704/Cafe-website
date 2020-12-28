@@ -4,6 +4,8 @@ const Product = require("../../models/product.model");
 const { json } = require("body-parser");
 module.exports.index = async (req, res) => {
   var userId = req.signedCookies.userId;
+  var userName = req.cookies.userName;
+  
   console.log(userId);
   var histories = await History.find({user_id : userId});
   var bill_id =[];
@@ -17,6 +19,7 @@ module.exports.index = async (req, res) => {
  
   res.render("users/histories", {
     bills: bills,
+    name:userName
   });
 
 };  

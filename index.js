@@ -49,14 +49,11 @@ app.engine(
 );
 
 app.set("view engine", "handlebars");
-app.get("/", async (req, res) => {
-  var userId = req.signedCookies.userId;
-  var user = await User.findById(userId);
-
-  if (user) {
-    console.log(user.name);
+app.get("/", (req, res) => {
+  var userName = req.cookies.userName;
+  if (userName) {
     res.render("index", {
-      name: user.name,
+      name: userName,
     });
   } else {
     res.render("index", {});
@@ -64,6 +61,38 @@ app.get("/", async (req, res) => {
 });
 
 
+app.get("/about", async (req, res) => {
+  var userName = req.cookies.userName;
+  if (userName) {
+    res.render("about", {
+      name: userName,
+    });
+  } else {
+    res.render("about", {});
+  }
+});
+
+app.get("/contact", async (req, res) => {
+  var userName = req.cookies.userName;
+  if (userName) {
+    res.render("contact", {
+      name: userName,
+    });
+  } else {
+    res.render("contact", {});
+  }
+});
+
+app.get("/cart", async (req, res) => {
+  var userName = req.cookies.userName;
+  if (userName) {
+    res.render("cart", {
+      name: userName,
+    });
+  } else {
+    res.render("cart", {});
+  }
+});
 app.use("/login", loginRoute);
 app.use("/register", registerRoute);
 app.use("/logout", logoutRoute);

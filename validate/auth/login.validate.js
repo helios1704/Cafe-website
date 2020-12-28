@@ -30,6 +30,8 @@ module.exports.postLogin = async(req, res, next) => {
                 res.cookie('userId', user._id, {
                     signed: true
                 });
+                res.cookie('userName', user.name, {
+                });
                 console.log("Dung");
                 next();
             } else {

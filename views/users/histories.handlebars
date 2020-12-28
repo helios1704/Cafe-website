@@ -2,41 +2,50 @@
 <html>
 
 <head>
-	<meta charset="UTF-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>The best Coffee</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" />
-	<link href="css/all.min.css" rel="stylesheet" />
-	<link rel="icon" href="/img/logo.png" type="image"> 
+    <link href="css/all.min.css" rel="stylesheet" />
+    <link rel="icon" href="/img/logo.png" type="image">
     <link href="css/style.css" rel="stylesheet" />
-</head>
-<body> 
-	<div class="container">
-		<div class="placeholder">
-			<div class="parallax-window" data-parallax="scroll" data-image-src="img/image.jpg">
-				<div class="tm-header">
-					<div class="row tm-header-inner">
-						<div class="col-md-6 col-12">
-							<a href="index.html" id="logo">
-								The best Coffee
-							</a>
-						</div>
-					</div>
-				    <nav class="tm-nav">
-                        <ul class="tm-nav-ul">
-                            <li class="tm-nav-li"><a href="index.html" class="tm-nav-link active">Sản Phẩm</a></li>
-                            <li class="tm-nav-li"><a href="about.html" class="tm-nav-link">Về chúng tôi</a></li>
-                            <li class="tm-nav-li"><a href="contact.html" class="tm-nav-link">Liên hệ</a></li>
-                            {{#if name}}
-                            <li class="tm-nav-li" style="color: black;">
-                                Hi {{name}}!
-                            </li>
-                            <li class="tm-nav-li"><a href="/logout" class="tm-nav-link">Đăng xuất</a></li>
-                            {{else}}
-                            <li class="tm-nav-li"><a href="/login" class="tm-nav-link">Đăng nhập</a></li>
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-                            {{/if}}
+</head>
+
+<body>
+    <div class="container">
+        <div class="placeholder">
+            <div class="parallax-window" data-parallax="scroll" data-image-src="img/image.jpg">
+                <div class="tm-header">
+                    <div class="row tm-header-inner">
+                        <div class="col-md-6 col-12">
+                            <a href="index.html" id="logo">
+                                The best Coffee
+
+                            </a>
+                        </div>
+                    </div>
+                    <nav class="tm-nav">
+                        <ul class="tm-nav-ul">
+                            <li class="tm-nav-li"><a href="/" class="tm-nav-link active">Sản Phẩm</a></li>
+                            <li class="tm-nav-li"><a href="/about" class="tm-nav-link">Về chúng tôi</a></li>
+                            <li class="tm-nav-li"><a href="/contact" class="tm-nav-link">Liên hệ</a></li>
+                            <div class="dropdown">
+                                {{#if name}}
+                                <li class="tm-nav-li" style="color: black;">
+                                    Hi {{name}} <i class="fa fa-caret-down"></i>
+                                </li>
+                                <div class="dropdown-content">
+                                    <a href="/logout" class="tm-nav-li">Đăng xuất</a>
+                                    <a href="/histories" class="tm-nav-li">Lịch sử giao dịch</a>
+                                </div>
+                                {{else}}
+                                <li class="tm-nav-li"><a href="/login" class="tm-nav-link">Đăng nhập</a></li>
+                                {{/if}}
+                            </div>
+
                             <li class="cart">
                                 <a href="/cart" class="tm-nav-link">
                                     <ion-icon name="basket"></ion-icon><span>0</span>
@@ -44,80 +53,85 @@
                             </li>
                         </ul>
                     </nav>
-				</div>
-			</div>
-		</div>
-		<div class="histories-container">
-			<div class="histories-header">
+                </div>
+            </div>
+        </div>
+        <div class="histories-container">
+            <div class="histories-header">
                 <h1>Lịch sử mua hàng</h1>
-			</div>
-            <div class="history">
-                <h3 class = "date-title"> Ngày</h3>
-                <h3 class = "product-title">Sản phẩm</h3>
-                <h3 class = "total-title"> Tổng </h3>	
-		    </div>
+            </div>
             <table class="histories">
+                <tr class="history">
+                    <th class="date-title">Ngày</th>
+                    <th class="product-title">Sản phẩm</th>
+                    <th class="total-title">Tổng</th>
+                </tr>
                 {{#each bills}}
-                <tr class="purchased-container">
+                <tr class="history">
+                    {{#each this}}
+                    {{#if this.date}}
+                    <td class="date">{{this.date}}</td>
+                    {{/if}}
+
+                    {{#if this.products}}
+                    <td class="product-name">
+                        {{#each this.products}}
                         {{#each this}}
-                            {{#if this.date}}
-                                <td class = "date">{{this.date}}</td>
-                            {{/if}}
-                            {{#each this.products}}
-                                    {{#each this}}
-                                        {{#if this.name}}
-                                            <td class = "product-name">{{this.name}}</td>
-                                        {{/if}}
-                                    {{/each}}
-                            {{/each}}
-                            {{#if this.totalPrice}}
-                                <td class = "total-price">{{this.totalPrice}}</td> 
-                            {{/if}}
+                        {{#if this.name}}
+                        {{this.name}}<br>
+                        {{/if}}
                         {{/each}}
-                        <td>
-                            <button class="button" id="myBtn">Đặt lại</button>
-                            <div id="myPay" class="pay">
-                                <div class="pay-content">
-                                    <div class="pay-header">
-                                        <span class="close">&times;</span>
-                                        <h2>Thanh toán</h2>
-                                    </div>
-                                    <div class="pay-body">
-                                        {{#with this}}
-                                            <h4 class ="date"> {{~this.date~}} </h4>
-                                            {{#each this.products}}
-                                                {{#if this}}
-                                                    {{#each this}}
-                                                        <h4 class = "product-name">{{this.name}} </h4>
-                                                    {{/each}}
-                                                {{/if}}
-                                            {{/each}}
-                                        {{/with}}
-                                    </div>
-                                    <div class="pay-footer">
-                                        <button class="buy" id="pay">Thanh toán</button>
-                                    </div>
+                        {{/each}}
+                    </td>
+                    {{/if}}
+                    {{#if this.totalPrice}}
+                    <td class="total-price">{{this.totalPrice}}</td>
+                    {{/if}}
+                    {{/each}}
+                    {{!-- <td>
+                        <button class="button" id="myBtn">Đặt lại</button> --}}
+                        {{!-- <div id="myPay" class="pay">
+                            <div class="pay-content">
+                                <div class="pay-header">
+                                    <span class="close">&times;</span>
+                                    <h2>Thanh toán</h2>
+                                </div>
+                                <div class="pay-body">
+                                    {{#with this}}
+                                    <h4 class="date"> {{this.date}} </h4>
+                                    {{#each this.products}}
+                                    {{#if this}}
+                                    {{#each this}}
+                                    <h4 class="product-name">{{this.name}} </h4>
+                                    {{/each}}
+                                    {{/if}}
+                                    {{/each}}
+                                    {{/with}}
+                                </div>
+                                <div class="pay-footer">
+                                    <button class="buy" id="pay">Thanh toán</button>
                                 </div>
                             </div>
-                            <button class="button" id="myBtn">Xem chi tiết</button>
-                        </td>
+                        </div> --}}
+                        {{!-- <button class="button" id="myBtn">Xem chi tiết</button> --}}
+                    </td>
                     {{else}}
-                        <p>Không có lịch sử giao dịch</p>
+                    <p>Không có lịch sử giao dịch</p>
                 </tr>
                 {{/each}}
-			</table>
-		</div>
-		<footer class="tm-footer text-center">
-			<p>Copyright &copy; 2020 The best Coffee 
-            
-		</footer>
-	</div>
-	<script src="js/jquery.min.js"></script>
-	<script src="js/parallax.min.js"></script>
-	<script src="js/addtocart.js"></script>
-	<script src="js/pay.js"></script>
+            </table>
+        </div>
+        <footer class="tm-footer text-center">
+            <p>Copyright &copy; 2020 The best Coffee
+
+        </footer>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/parallax.min.js"></script>
+    <script src="js/addtocart.js"></script>
+    <script src="js/pay.js"></script>
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
-	<script>
+    <script>
         function toPopUp() {
             var popup = document.getElementById("toPopUp");
             popup.classList.toggle("show");

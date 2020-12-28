@@ -134,9 +134,9 @@ html {
   border-bottom: 1px solid lightgrey;
 }
 
-.product-name{
+/* .product-name{
   margin-left: 20px;
-}
+} */
 
 .product ion-icon{
   cursor: pointer;

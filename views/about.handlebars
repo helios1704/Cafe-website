@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>The best coffee</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" />
+	<link href="css/all.min.css" rel="stylesheet" />
+	<link rel="icon" href="/img/logo.png" type="image"> 
+	<link href="css/style.css" rel="stylesheet" />
+</head>
+<body> 
+
+	<div class="container">
+	<!-- Top box -->
+		<!-- Logo & Site Name -->
+		<div class="placeholder">
+			<div class="parallax-window" data-parallax="scroll" data-image-src="img/thebestcoffe.jpg">
+				<div class="tm-header">
+					<div class="row tm-header-inner">
+						<div class="col-md-6 col-12">
+							<a href="index.html" id="logo">
+								The best Coffee
+							</a>
+						</div>
+					</div>
+					<nav class="tm-nav">
+						<ul class="tm-nav-ul">
+							<li class="tm-nav-li"><a href="/" class="tm-nav-link active">Sản Phẩm</a></li>
+                            <li class="tm-nav-li"><a href="/about" class="tm-nav-link">Về chúng tôi</a></li>
+                            <li class="tm-nav-li"><a href="/contact" class="tm-nav-link">Liên hệ</a></li>
+							<div class="dropdown">
+								{{#if name}}
+								<li class="tm-nav-li" style="color: black;">
+									Hi {{name}} <i class="fa fa-caret-down"></i>
+								</li>
+								<div class="dropdown-content">
+									<a href="/logout" class="tm-nav-li">Đăng xuất</a>
+									<a href="/histories" class="tm-nav-li">Lịch sử giao dịch</a>
+								</div>
+								{{else}}
+								<li class="tm-nav-li"><a href="/login" class="tm-nav-link">Đăng nhập</a></li>
+								{{/if}}
+							</div>
+							<li class="cart">
+								<a href="cart.html" class="tm-nav-link">
+									<ion-icon name="basket"></ion-icon><span>0</span>
+								</a>
+							</li>
+						</ul>
+					</nav>	
+				</div>
+			</div>
+		</div>
+
+		<main>
+			<header class="row tm-welcome-section">
+				<h2 class="col-12 text-center tm-section-title">Giá trị làm nên thương hiệu The best Coffee</h2>
+				<p class="col-12 text-center">Bắt đầu từ sứ mệnh “Deliver Happiness” -
+					 Trao gửi hạnh phúc, chúng tôi tin rằng khi làm việc với tất cả sự chân thành và tôn trọng 
+					 những giá trị nguyên bản của từng nhân viên cũng như khách hàng, tất cả mọi người đến với 
+					 The  best Coffee  đều nhận được những niềm vui nho nhỏ, được tốt lên và làm người khác tốt lên từng ngày.</p>
+					 <p class="col-12 text-center">Mỗi sản phẩm, chiến dịch của The best Coffee  luôn xoay quanh con người.
+						  Chúng tôi lấy khách hàng, nhân viên và cộng đồng làm trọng tâm cho mọi quyết định. 
+						  Vì khi có bạn, The best Coffee được tiếp thêm 
+						 sức mạnh để cùng lan toả những giá trị tốt đẹp cho người trẻ Việt Nam.</p>
+						 <p class="col-12 text-center">Chúng tôi muốn tạo ra dấu ấn khác biệt cho cà phê Việt Nam 
+							 bằng sự tử tế và cẩn trọng. 5 năm qua, cảm ơn bạn là nguồn động lực giúp chúng tôi
+							  nỗ lực đổi mới và kiến tạo mỗi ngày, để mang lại những thành phẩm tuyệt vời nhất,
+							  để trải nghiệm của bạn ngày một tốt hơn.</p>
+							  <p class="col-12 text-center">Tại The best Coffee, những tâm hồn đồng điệu cùng nhau
+								   làm việc cần mẫn và chung sức cho những mục tiêu lớn. Mỗi ngày với chúng tôi đều là một 
+								   ngày được học hỏi, trải nghiệm những điều mới, đón nhận thách thức và dấn thân trên con đường phía trước.
+								    Hành trình tiếp theo, chúng tôi mong muốn được cùng bạn nuôi dưỡng ước
+								   mơ và kiên trì đi đến tận cùng ước mơ của mình.</p>
+			</header>
+			<div class="tm-container-inner tm-history">
+				<div class="row">
+					<div class="col-12">
+						<div class="tm-history-inner">
+							
+							<div class="tm-history-text"> 
+								<h4 class="tm-history-title"></h4>
+								<p class="tm-mb-p"></p>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<footer class="tm-footer text-center">
+			<p>Copyright &copy; 2020 The best Coffee
+		</footer>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/parallax.min.js"></script>
+	<script src="js/addtocart.js"></script>
+	<script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+</body>
+</html>
