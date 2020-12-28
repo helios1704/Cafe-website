@@ -31,6 +31,11 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(cookieParser("helios1704"));
 app.use(express.static("public"));
+app.use("/img", express.static(path.join(__dirname, "public/images")));
+app.use("/js", express.static(path.join(__dirname, "public/javascripts")));
+app.use("/css", express.static(path.join(__dirname, "public/stylesheets")));
+app.use("/uploads", express.static(path.join(__dirname, "public/uploads")));
+app.use("/AdminLTE", express.static(path.join(__dirname, "public/AdminLTE")));
 // app.use(sessionMiddleware);
 
 app.set("views", "./views");
@@ -39,7 +44,7 @@ app.engine(
   "handlebars",
   exphbs({
     defaultLayout: null,
-    partialsDir: path.join(__dirname, "views/admins/partials"),
+    partialsDir: path.join(__dirname, "views/admins/partials/"),
   })
 );
 

@@ -11,7 +11,8 @@ module.exports.data_table = async (req, res) => {
 };
 
 module.exports.create = async (req, res) => {
-  const categories = Category.find();
+  const categories = await Category.find();
+  console.log(categories);
   res.render("admins/products/create", {
     categories: categories,
   });

@@ -3,7 +3,7 @@ const Category = require("../../../models/category.model");
 var ObjectId = require("mongodb").ObjectID;
 
 module.exports.store = (req, res, next) => {
-  console.log(req);
+  console.log(req.file);
   let errors = [];
   if (!req.body.name) {
     errors.push("Name is required");
@@ -31,7 +31,11 @@ module.exports.store = (req, res, next) => {
     //   errors: errors,
     //   value: req.body,
     // });
-    res.json(errors);
+    console.log(errors);
+    res.render("admins/products/create", {
+      errors: errors,
+      data: req.body,
+    });
     return;
   }
   next();
