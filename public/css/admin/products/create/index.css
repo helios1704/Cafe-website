@@ -1,0 +1,10 @@
+.image {
+  border: 2px solid #c9bbbb;
+  height: 300px;
+  width: 300px;
+  background-image: url("/img/thebestcoffee.jpg");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+/*# sourceMappingURL=index.css.map */
