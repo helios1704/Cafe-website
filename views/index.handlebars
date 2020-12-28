@@ -9,10 +9,10 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />
     <link rel="icon" href="/img/logo.png" type="image">
     <link href="css/style.css" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body>
-
     <div class="container">
         <div class="placeholder">
             <div class="parallax-window" data-parallax="scroll" data-image-src="img/image.jpg">
@@ -29,20 +29,24 @@
                             <li class="tm-nav-li"><a href="index.html" class="tm-nav-link active">Sản Phẩm</a></li>
                             <li class="tm-nav-li"><a href="about.html" class="tm-nav-link">Về chúng tôi</a></li>
                             <li class="tm-nav-li"><a href="contact.html" class="tm-nav-link">Liên hệ</a></li>
-                            {{#if name}}
-                               <li class="tm-nav-li" style="color: black;">
-                               Hi  {{name}}!
+                            <div class="dropdown">
+                                {{#if name}}
+                                <li class="tm-nav-li" style="color: black;">
+                                    Hi {{name}} <i class="fa fa-caret-down"></i>
                                 </li>
-                                   <li class="tm-nav-li"><a href="/logout" class="tm-nav-link">Đăng xuất</a></li>
-                            {{else}}
+                                <div class="dropdown-content">
+                                    <a href="/logout" class="tm-nav-li">Đăng xuất</a>
+                                    <a href="/histories" class="tm-nav-li">Lịch sử giao dịch</a>
+                                </div>
+                                {{else}}
                                 <li class="tm-nav-li"><a href="/login" class="tm-nav-link">Đăng nhập</a></li>
-
-                            {{/if}}
+                                {{/if}}
+                            </div>
                             <li class="cart">
                                 <a href="/cart" class="tm-nav-link">
                                     <ion-icon name="basket"></ion-icon><span>0</span>
-                                </a></li>
-                       
+                                </a>
+                            </li>
                         </ul>
                     </nav>
                 </div>
