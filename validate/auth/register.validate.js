@@ -18,7 +18,10 @@ module.exports.register = async(req, res, next) => {
     }
     else if (!req.body.password) {
         arrError.push("Password is required!");
+    } else if (!req.body.password) {
+        arrError.push("Phone is phone!");
     } else {
+        var roles = await Role.findOne({ name: "user" })
         var hashPassword = null;
         bcrypt.hash(req.body.password, saltRounds, async(err, hash) => {
             hashPassword = hash;
