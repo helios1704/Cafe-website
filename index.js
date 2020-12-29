@@ -12,12 +12,7 @@ const path = require("path");
 dotenv.config();
 // mongoose.connect(process.env.mongo_url);
 const url = process.env.MONGO_URL || "mongodb://localhost:27017/thuctapcongnhan";
-mongoose.connect("mongodb+srv://admin:123@cafe-website.2mvpl.mongodb.net/thuctapcongnhan?retryWrites=true&w=majority", 
-  { useUnifiedTopology: true ,
-    useNewUrlParser:true}
-);
-
-
+mongoose.connect(url, {useUnifiedTopology: true ,useNewUrlParser:true});
 
 //models
 var User = require("./models/user.model");
@@ -111,7 +106,7 @@ app.use("/histories", historyRoute);
 app.use("/admin/users", authAdminMiddleware.requireAuth, adminUserRoute);
 app.use("/admin", adminAuthRoute);
 app.use("/admin/products", authAdminMiddleware.requireAuth, adminProductRoute);
-const port = process.env.port || 3000;
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
   console.log("Example Listen at: " + port);
