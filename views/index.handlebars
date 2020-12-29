@@ -72,6 +72,7 @@
             <!-- Gallery -->
             <div class="row tm-gallery">
                 <!-- gallery page 1 -->
+                
                 {{#each products}}
                     {{#if this.Cold_Brew}}
                 <div id="tm-gallery-page-coldbrew" class="tm-gallery-page">
@@ -102,7 +103,6 @@
                 <div id="tm-gallery-page-matcha" class="tm-gallery-page hidden">
                     {{#each this.Matcha}}
                     {{#if this}}
-                   
                     {{#each this}}
                     {{#if this.name}}
                     <p id="productA" class="hidden">{{this._id}}</p>
