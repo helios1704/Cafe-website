@@ -16,7 +16,7 @@ module.exports.index = async (req, res) => {
     object[name]  = await Product.find({category_id : category._id})
     productArray.push(object);
   });
-  
+  console.log(categories);
   res.render('index' ,{
     products: productArray,
     name: userName
