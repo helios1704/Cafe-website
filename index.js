@@ -11,9 +11,7 @@ const dotenv = require("dotenv");
 const path = require("path");
 dotenv.config();
 // mongoose.connect(process.env.mongo_url);
-mongoose.connect("mongodb://localhost:27017/thuctapcongnhan");
-
-
+mongoose.connect("mongodb://localhost:27017/thuctapcongnhan", { useUnifiedTopology: true ,useNewUrlParser:true});
 
 //models
 var User = require("./models/user.model");
