@@ -46,7 +46,7 @@
 								{{/if}}
 							</div>
 							<li class="cart">
-								<a href="cart.html" class="tm-nav-link active">
+								<a href="/cart" class="tm-nav-link active">
 									<ion-icon name="basket"></ion-icon><span>0</span>
 								</a>
 							</li>
@@ -63,6 +63,7 @@
 				<h3 class="total">Tổng</h3>
 			</div>
 			<div class="products">
+
 			</div>
 			<button id="myBtn" class="buy">Thanh toán</button>
 			<div id="myPay" class="pay">
@@ -85,8 +86,6 @@
 
 		<footer class="tm-footer text-center">
 			<p>Copyright &copy; 2020 The best Coffee
-
-
 		</footer>
 	</div>
 	<script src="js/jquery.min.js"></script>
@@ -95,6 +94,10 @@
 	<script src="js/pay.js"></script>
 	<script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 	<script>
+		var a = document.getElementById('pay');
+		a.onclick= ()=>{
+			console.log(products);
+		};
 	</script>
 </body>
 

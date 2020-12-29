@@ -1,97 +1,12 @@
 
 let carts = document.querySelectorAll(".add-cart");
-let products = [
-        {
-            name : "Cold Brew truyền thống",
-            tag : "coldbrewtruyenthong",
-            price : 45,
-            inCart : 0
-        },
-        {
-            name : "Cold Brew cam vàng",
-            tag : "coldbrewcamvang",
-            price : 50,
-            inCart : 0
-        },
-        {
-            name : "Cold Brew sữa tươi Macchiato",
-            tag : "coldbrewsuatuoimacchiato",
-            price : 50,
-            inCart : 0
-        },
-        {
-            name : "Cold Brew phúc bồn tử",
-            tag : "coldbrewphucbontu",
-            price : 50,
-            inCart : 0
-        },
-        {
-            name : "Cold Brew sữa tươi",
-            tag : "coldbrewsuatuoi",
-            price : 50,
-            inCart : 0
-        },
-        {
-            name : "Americano",
-            tag : "americano",
-            price : 39,
-            inCart : 0
-        },
-        {
-            name : "Cappuchino",
-            tag : "cappuchino",
-            price : 45,
-            inCart : 0
-        },
-        {
-            name : "Caramel Macchiato",
-            tag : "caramelmacchiato",
-            price : 55,
-            inCart : 0
-        },
-        {
-            name : "Espresso",
-            tag : "espresso",
-            price : 35,
-            inCart : 0
-        },
-        {
-            name : "Latte",
-            tag : "latte",
-            price : 45,
-            inCart : 0
-        },
-        {
-            name : "Mocha",
-            tag : "mocha",
-            price : 49,
-            inCart : 0
-        },
-        {
-            name : "Socola đá",
-            tag : "socolada",
-            price : 55,
-            inCart : 0
-        },
-        {
-            name : "Socola đá xay",
-            tag : "socoladaxay",
-            price : 59,
-            inCart : 0
-        },
-        {
-            name : "Matcha đá xay",
-            tag : "matchadaxay",
-            price : 59,
-            inCart : 0
-        },
-        {
-            name : "Matcha Latte",
-            tag : "matchalatte",
-            price : 59,
-            inCart : 0
-        }
-    ];
+let a = document.querySelectorAll("#productA");
+var products =[];
+console.log(a)
+a.forEach(element => {
+    products.push(element.innerHTML);
+});
+console.log(products);
 
 // async function getData() {
 //     let response = await fetch('data.json');
@@ -125,15 +40,12 @@ function cartNumbers(product){
         localStorage.setItem('cartNumbers', 1);
         document.querySelector('.cart span').textContent = 1;
     }
-
     setItems(product);
 }
 
 function setItems(product){
-
     let cartItems = localStorage.getItem('productsInCart');
     cartItems = JSON.parse(cartItems);
-
     if (cartItems != null){
         if(cartItems[product.tag] == undefined){
             cartItems = {

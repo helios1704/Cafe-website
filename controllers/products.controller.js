@@ -7,6 +7,7 @@ var upload =multer({dest:'./public/products'});
 
 
 module.exports.index = async (req, res) => {
+  var userName = req.cookies.userName;
   var categories = await Category.find();
   var productArray = [];
   categories.forEach(async (category) => {
@@ -16,6 +17,7 @@ module.exports.index = async (req, res) => {
     productArray.push(object);
   });
   res.render('index' ,{
-    products: productArray
+    products: productArray,
+    name: userName
   });
 };
