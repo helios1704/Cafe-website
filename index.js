@@ -11,7 +11,8 @@ const dotenv = require("dotenv");
 const path = require("path");
 dotenv.config();
 // mongoose.connect(process.env.mongo_url);
-mongoose.connect("mongodb://localhost:27017/thuctapcongnhan");
+const url = process.env.MONGO_URL || "mongodb://localhost:27017/thuctapcongnhan";
+mongoose.connect(url);
 
 
 
