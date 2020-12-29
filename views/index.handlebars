@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html>
 
@@ -42,11 +45,11 @@
                                 <li class="tm-nav-li"><a href="/login" class="tm-nav-link">Đăng nhập</a></li>
                                 {{/if}}
                             </div>
-                                <li class="cart">
-                                    <a href="/cart" class="tm-nav-link">
-                                        <ion-icon name="basket"></ion-icon><span>0</span>
-                                    </a>
-                                </li>
+                            <li class="cart">
+                                <a href="/cart" class="tm-nav-link">
+                                    <ion-icon name="basket"></ion-icon><span>0</span>
+                                </a>
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -72,174 +75,82 @@
             <!-- Gallery -->
             <div class="row tm-gallery">
                 <!-- gallery page 1 -->
+                {{#each products}}
+                    {{#if this.Cold_Brew}}
                 <div id="tm-gallery-page-coldbrew" class="tm-gallery-page">
+                    {{#each this.Cold_Brew}}
+                    {{#if this}}
+                    {{#each this}}
+                    {{#if this.name}}
                     <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
                         <figure>
-                            <img src="img/gallery/coldbrewtruyenthong.jpg" alt="Image"
+                            <img src="img/products/{{this.image}}" alt="Image"
                                 class="img-fluid tm-gallery-img" />
                             <figcaption>
-                                <h4 class="tm-gallery-title">Cold brew truyền thống</h4>
-                                <p class="tm-gallery-price">45,000 Đ</p>
+                                <h4 class="tm-gallery-title">{{this.name}}</h4>
+                                <p class="tm-gallery-price">{{this.price}}</p>
                                 <a class="add-cart cart1" href="#">Thêm vào</a>
-
-                            </figcaption>
-
-                        </figure>
-                    </article>
-                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                        <figure>
-                            <img src="img/gallery/coldbrewcamvang.jpg" alt="Image" class="img-fluid tm-gallery-img" />
-                            <figcaption>
-                                <h4 class="tm-gallery-title">Cold brew cam vàng</h4>
-                                <p class="tm-gallery-price">50,000 Đ</p>
-                                <a class="add-cart cart2" href="#">Thêm vào</a>
                             </figcaption>
                         </figure>
                     </article>
+                    {{/if}}
+                    {{/each}}
+                    {{/if}}
+                    {{/each}}
+                </div> <!-- gallery page 1 -->
+                 {{/if}}
+                <!-- gallery page 2 -->
+                 {{#if this.Matcha}}
+                <div id="tm-gallery-page-matcha" class="tm-gallery-page hidden">
+                    {{#each this.Matcha}}
+                    {{#if this}}
+                    {{#each this}}
+                    {{#if this.name}}
                     <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
                         <figure>
-                            <img src="img/gallery/coldbrewsuatuoimacchiato.jpg" alt="Image"
+                            <img src="img/products/{{this.image}}" alt="Image"
                                 class="img-fluid tm-gallery-img" />
                             <figcaption>
-                                <h4 class="tm-gallery-title">Cold brew sữa tươi Macchiato</h4>
-                                <p class="tm-gallery-price">50,000 Đ</p>
-                                <a class="add-cart cart3" href="#">Thêm vào</a>
+                                <h4 class="tm-gallery-title">{{this.name}}</h4>
+                                <p class="tm-gallery-price">{{this.price}}</p>
+                                <a class="add-cart cart1" href="#">Thêm vào</a>
                             </figcaption>
                         </figure>
                     </article>
-                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                        <figure>
-                            <img src="img/gallery/coldbrewphucbontu.jpg" alt="Image" class="img-fluid tm-gallery-img" />
-                            <figcaption>
-                                <h4 class="tm-gallery-title">Cold brew phúc bồn tử</h4>
-                                <p class="tm-gallery-price">50,000 Đ</p>
-                                <a class="add-cart cart4" href="#">Thêm vào</a>
-                            </figcaption>
-                        </figure>
-                    </article>
-                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                        <figure>
-                            <img src="img/gallery/coldbrewsuatuoi.jpg" alt="Image" class="img-fluid tm-gallery-img" />
-                            <figcaption>
-                                <h4 class="tm-gallery-title">Cold brew sữa tươi</h4>
-                                <p class="tm-gallery-price">50,000 Đ</p>
-                                <a class="add-cart cart5" href="#">Thêm vào</a>
-                            </figcaption>
-                        </figure>
-                    </article>
-
-
-                </div> <!-- gallery page 1 -->
-
-                <!-- gallery page 2 -->
-                <div id="tm-gallery-page-matcha" class="tm-gallery-page hidden">
-                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                        <figure>
-                            <img src="img/gallery/socolada.jpg" alt="Image" class="img-fluid tm-gallery-img" />
-                            <figcaption>
-                                <h4 class="tm-gallery-title">Socola đá</h4>
-                                <p class="tm-gallery-price">55,000 Đ</p>
-                                <a class="add-cart cart6" href="#">Thêm vào</a>
-                            </figcaption>
-                        </figure>
-                    </article>
-                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                        <figure>
-                            <img src="img/gallery/socoladaxay.jpg" alt="Image" class="img-fluid tm-gallery-img" />
-                            <figcaption>
-                                <h4 class="tm-gallery-title">Socola đá xay</h4>
-                                <p class="tm-gallery-price">59,000 Đ</p>
-                                <a class="add-cart cart7" href="#">Thêm vào</a>
-                            </figcaption>
-                        </figure>
-                    </article>
-                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                        <figure>
-                            <img src="img/gallery/matchadaxay.jpg" alt="Image" class="img-fluid tm-gallery-img" />
-                            <figcaption>
-                                <h4 class="tm-gallery-title">Matcha đá xay</h4>
-                                <p class="tm-gallery-price">59,000 Đ</p>
-                                <a class="add-cart cart8" href="#">Thêm vào</a>
-                            </figcaption>
-                        </figure>
-                    </article>
-                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                        <figure>
-                            <img src="img/gallery/matchalatte.jpg" alt="Image" class="img-fluid tm-gallery-img" />
-                            <figcaption>
-                                <h4 class="tm-gallery-title">Matcha latte</h4>
-                                <p class="tm-gallery-price">59,000 Đ</p>
-                                <a class="add-cart cart9" href="#">Thêm vào</a>
-                            </figcaption>
-                        </figure>
-
+                    {{/if}}
+                    {{/each}}
+                    {{/if}}
+                    {{/each}}
                 </div> <!-- gallery page 2 -->
-
+                 {{/if}}
                 <!-- gallery page 3 -->
+                {{#if this.Coffee}}
                 <div id="tm-gallery-page-coffee" class="tm-gallery-page hidden">
+                    {{#each this.Coffee}}
+                     {{#if this}}
+                    {{#each this}}
+                    {{#if this.name}}
                     <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
                         <figure>
-                            <img src="img/gallery/americano.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+                            <img src="img/products/{{this.image}}" alt="Image"
+                                class="img-fluid tm-gallery-img" />
                             <figcaption>
-                                <h4 class="tm-gallery-title">Americano</h4>
-                                <p class="tm-gallery-price">39,000 Đ</p>
-                                <a class="add-cart cart10" href="#">Thêm vào</a>
+                                <h4 class="tm-gallery-title">{{this.name}}</h4>
+                                <p class="tm-gallery-price">{{this.price}}</p>
+                                <a class="add-cart cart1" href="#">Thêm vào</a>
                             </figcaption>
                         </figure>
                     </article>
-                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                        <figure>
-                            <img src="img/gallery/cappuchino.jpg" alt="Image" class="img-fluid tm-gallery-img" />
-                            <figcaption>
-                                <h4 class="tm-gallery-title">Cappucchino</h4>
-                                <p class="tm-gallery-price">45,000 Đ</p>
-                                <a class="add-cart cart11" href="#">Thêm vào</a>
-                            </figcaption>
-                        </figure>
-                    </article>
-                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                        <figure>
-                            <img src="img/gallery/caramelmacchiato.jpg" alt="Image" class="img-fluid tm-gallery-img" />
-                            <figcaption>
-                                <h4 class="tm-gallery-title">Caramel Macchiato</h4>
-                                <p class="tm-gallery-price">55,000 Đ</p>
-                                <a class="add-cart cart12" href="#">Thêm vào</a>
-                            </figcaption>
-                        </figure>
-                    </article>
-                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                        <figure>
-                            <img src="img/gallery/espresso.jpg" alt="Image" class="img-fluid tm-gallery-img" />
-                            <figcaption>
-                                <h4 class="tm-gallery-title">Espresso</h4>
-                                <p class="tm-gallery-price">35,000 Đ</p>
-                                <a class="add-cart cart13" href="#">Thêm vào</a>
-                            </figcaption>
-                        </figure>
-                    </article>
-                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                        <figure>
-                            <img src="img/gallery/latte.jpg" alt="Image" class="img-fluid tm-gallery-img" />
-                            <figcaption>
-                                <h4 class="tm-gallery-title">Latte</h4>
-                                <p class="tm-gallery-price">45,000 Đ</p>
-                                <a class="add-cart cart14" href="#">Thêm vào</a>
-                            </figcaption>
-                        </figure>
-                    </article>
-                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                        <figure>
-                            <img src="img/gallery/mocha.jpg" alt="Image" class="img-fluid tm-gallery-img" />
-                            <figcaption>
-                                <h4 class="tm-gallery-title">Mocha</h4>
-                                <p class="tm-gallery-price">49,000 Đ</p>
-                                <a class="add-cart cart15" href="#">Thêm vào</a>
-                            </figcaption>
-                        </figure>
-                    </article>
-
+                    {{/if}}
+                    {{/each}}
+                    {{/if}}
+                    {{/each}}
                 </div> <!-- gallery page 3 -->
-            </div>
+                 {{/if}}
+             
+                {{/each}}
+            </div>  
+           
             <div class="tm-section tm-container-inner">
                 <div class="row">
                     <div class="col-md-6">
