@@ -12,7 +12,7 @@ const path = require("path");
 dotenv.config();
 // mongoose.connect(process.env.mongo_url);
 const url = process.env.MONGO_URL || "mongodb://localhost:27017/thuctapcongnhan";
-mongoose.connect(url);
+mongoose.connect("mongodb+srv://admin:@cafe-website.2mvpl.mongodb.net/thuctapcongnhan?retryWrites=true&w=majority");
 
 
 
