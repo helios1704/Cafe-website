@@ -320,14 +320,17 @@ html {
 .history .date-title{
   margin-left: 100px;
   width: 35%;
+  font-size: 25px;
 }
 
 .history .product-title{
-  width: 35%;
+  width: 25%;
+  font-size: 25px;
 }
 
 .history .total-title{
-  width: 10%;
+  width: 28%;
+  font-size: 25px;
 }
 
 .histories{
@@ -363,7 +366,7 @@ html {
 }
 
 .product-name{
-  width: 45%;
+  width: 35%;
   font-weight: 500;
   font-family: 'Dosis', sans-serif;
   color: white;
