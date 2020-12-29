@@ -1,0 +1,199 @@
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>The best Coffee</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />
+    <link rel="icon" href="/img/logo.png" type="image">
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="placeholder">
+            <div class="parallax-window" data-parallax="scroll" data-image-src="img/image.jpg">
+                <div class="tm-header">
+                    <div class="row tm-header-inner">
+                        <div class="col-md-6 col-12">
+                            <a href="index.html" id="logo">
+                                The best Coffee
+                            </a>
+                        </div>
+                    </div>
+                    <nav class="tm-nav">
+                        <ul class="tm-nav-ul">
+                            <li class="tm-nav-li"><a href="/" class="tm-nav-link active">Sản Phẩm</a></li>
+                            <li class="tm-nav-li"><a href="/about" class="tm-nav-link">Về chúng tôi</a></li>
+                            <li class="tm-nav-li"><a href="/contact" class="tm-nav-link">Liên hệ</a></li>
+                            <div class="dropdown">
+                                {{#if name}}
+                                <li class="tm-nav-li" style="color: black;">
+                                    Hi {{name}} <i class="fa fa-caret-down"></i>
+                                </li>
+                                <div class="dropdown-content">
+                                    <a href="/logout" class="tm-nav-li">Đăng xuất</a>
+                                    <a href="/histories" class="tm-nav-li">Lịch sử giao dịch</a>
+                                </div>
+                                {{else}}
+                                <li class="tm-nav-li"><a href="/login" class="tm-nav-link">Đăng nhập</a></li>
+                                {{/if}}
+                            </div>
+                            <li class="cart">
+                                <a href="/cart" class="tm-nav-link">
+                                    <ion-icon name="basket"></ion-icon><span>0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <main>
+            <header class="row tm-welcome-section">
+                <h2 class="col-12 text-center tm-section-title">Welcome to The best Coffee</h2>
+                <p class="col-12 text-center"></p>
+            </header>
+
+            <div class="tm-paging-links">
+                <nav>
+                    <ul>
+                        <li class="tm-paging-item"><a href="#" class="tm-paging-link active">COLDBREW</a></li>
+                        <li class="tm-paging-item"><a href="#" class="tm-paging-link">MATCHA</a></li>
+                        <li class="tm-paging-item"><a href="#" class="tm-paging-link">COFFEE</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Gallery -->
+            <div class="row tm-gallery">
+                <!-- gallery page 1 -->
+                {{#each products}}
+                    {{#if this.Cold_Brew}}
+                <div id="tm-gallery-page-coldbrew" class="tm-gallery-page">
+                    {{#each this.Cold_Brew}}
+                    {{#if this}}
+                    {{#each this}}
+                    {{#if this.name}}
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="img/products/{{this.image}}" alt="Image"
+                                class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                <h4 class="tm-gallery-title">{{this.name}}</h4>
+                                <p class="tm-gallery-price">{{this.price}}</p>
+                                <a class="add-cart cart1" href="#">Thêm vào</a>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    {{/if}}
+                    {{/each}}
+                    {{/if}}
+                    {{/each}}
+                </div> <!-- gallery page 1 -->
+                 {{/if}}
+                <!-- gallery page 2 -->
+                 {{#if this.Matcha}}
+                <div id="tm-gallery-page-matcha" class="tm-gallery-page hidden">
+                    {{#each this.Matcha}}
+                    {{#if this}}
+                    {{#each this}}
+                    {{#if this.name}}
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="img/products/{{this.image}}" alt="Image"
+                                class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                <h4 class="tm-gallery-title">{{this.name}}</h4>
+                                <p class="tm-gallery-price">{{this.price}}</p>
+                                <a class="add-cart cart1" href="#">Thêm vào</a>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    {{/if}}
+                    {{/each}}
+                    {{/if}}
+                    {{/each}}
+                </div> <!-- gallery page 2 -->
+                 {{/if}}
+                <!-- gallery page 3 -->
+                {{#if this.Coffee}}
+                <div id="tm-gallery-page-coffee" class="tm-gallery-page hidden">
+                    {{#each this.Coffee}}
+                     {{#if this}}
+                    {{#each this}}
+                    {{#if this.name}}
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="img/products/{{this.image}}" alt="Image"
+                                class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                <h4 class="tm-gallery-title">{{this.name}}</h4>
+                                <p class="tm-gallery-price">{{this.price}}</p>
+                                <a class="add-cart cart1" href="#">Thêm vào</a>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    {{/if}}
+                    {{/each}}
+                    {{/if}}
+                    {{/each}}
+                </div> <!-- gallery page 3 -->
+                 {{/if}}
+             
+                {{/each}}
+            </div>  
+           
+            <div class="tm-section tm-container-inner">
+                <div class="row">
+                    <div class="col-md-6">
+                        <figure class="tm-description-figure">
+                            <img src="img/thebestcoffe.jpg" alt="Image" class="img-fluid" />
+                        </figure>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="tm-description-box">
+                            <h4 class="tm-gallery-title"></h4>
+                            <p class="tm-mb-45">Chúng tôi luôn muốn đem những sản phẩm tốt nhất đến với khách hàng</p>
+                            <a href="about.html" class="tm-btn tm-btn-default tm-right">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="tm-footer text-center">
+            <p>Copyright &copy; 2020 The Best Coffee
+
+
+        </footer>
+    </div>
+    <!-- <script type="text/javascript" src="./data.json"></script> -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/parallax.min.js"></script>
+    <script src="js/addtocart.js"></script>
+    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Handle click on paging links
+            $('.tm-paging-link').click(function (e) {
+                e.preventDefault();
+
+                var page = $(this).text().toLowerCase();
+                $('.tm-gallery-page').addClass('hidden');
+                $('#tm-gallery-page-' + page).removeClass('hidden');
+                $('.tm-paging-link').removeClass('active');
+                $(this).addClass("active");
+            });
+        });
+    </script>
+</body>
+
+</html>

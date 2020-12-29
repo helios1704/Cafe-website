@@ -1,25 +1,21 @@
 const Product = require("../models/product.model");
 const Category = require("../models/category.model");
 var ObjectId = require("mongodb").ObjectID;
+var multer = require('multer');
+
+var upload =multer({dest:'./public/products'});
+
 
 module.exports.index = async (req, res) => {
-  // const categories = await Category.find();
-  const category_id = ObjectId(
-    req.query.category ||
-      (
-        await Category.findOne({
-          name: "Coffee",
-        })
-      )._id
-  );
-  const products = await Product.find({
-    $or: [
-      {
-        category_id: category_id,
-      },
-    ],
+  var categories = await Category.find();
+  var productArray = [];
+  categories.forEach(async (category) => {
+    var name = category.name;
+    var object = {};
+    object[name]  = await Product.find({category_id : category._id})
+    productArray.push(object);
   });
-  console.log(products);
-  res.json(products);
-  // res.render("products/index");
+  res.render('test' ,{
+    products: productArray
+  });
 };

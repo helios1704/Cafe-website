@@ -1,5 +1,6 @@
 var mongoose = require("mongoose");
 var express = require("express");
+
 var app = express();
 
 var bodyParser = require("body-parser");
@@ -54,16 +55,16 @@ app.engine(
 );
 
 app.set("view engine", "handlebars");
-app.get("/", (req, res) => {
-  var userName = req.cookies.userName;
-  if (userName) {
-    res.render("index", {
-      name: userName,
-    });
-  } else {
-    res.render("index", {});
-  }
-});
+// app.get("/", (req, res) => {
+//   var userName = req.cookies.userName;
+//   if (userName) {
+//     res.render("index", {
+//       name: userName,
+//     });
+//   } else {
+//     res.render("index", {});
+//   }
+// });
 
 
 app.get("/about", async (req, res) => {
@@ -101,7 +102,7 @@ app.get("/cart", async (req, res) => {
 app.use("/login", loginRoute);
 app.use("/register", registerRoute);
 app.use("/logout", logoutRoute);
-app.use("/products", productsRoute);
+app.use("/", productsRoute);
 app.use("/histories", historyRoute);
 app.use("/admin/users", authAdminMiddleware.requireAuth, adminUserRoute);
 app.use("/admin", adminAuthRoute);
