@@ -111,7 +111,7 @@ let products = [
         "category_id": {
           "$oid": "5fb1f51e4555c7062965fc5c"
         }
-      },{primary
+      },{
         "_id": {
           "$oid": "5fe9f1ae153a874c393a7227"
         },
@@ -239,6 +239,7 @@ function totalCost(product){
     else{
         localStorage.setItem("totalCost", product.price);
     }
+    
 }
 
 function displayCart(){
