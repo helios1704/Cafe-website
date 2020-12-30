@@ -31,68 +31,99 @@
 {{> footer}}
 
 <script>
-  $(document).ready(function () {
-    $('#users-table').DataTable({
-      drawCallback: function () {
-      },
-      ordering: true,
-      searching: false,
-      pageLength: 5,
-      paging: true,
-      lengthChange: false,
-      autoWidth: false,
-      processing: true,
-      columnDefs: [
-        {
+  $(function () {
+    $(document).ready(function () {
+      $('#users-table').DataTable({
+        drawCallback: function () {
+        },
+        ordering: true,
+        searching: false,
+        pageLength: 5,
+        paging: true,
+        lengthChange: false,
+        autoWidth: false,
+        processing: true,
+        columnDefs: [
+          {
 
-          "targets": [0],
-          "visible": false,
-          "searchable": false
+            "targets": [0],
+            "visible": false,
+            "searchable": false
+          },
+        ],
+        ajax: {
+          data: "json",
+          url: "/admin/users/data-table",
+          type: 'GET',
         },
-      ],
-      ajax: {
-        data: "json",
-        url: "/admin/users/data-table",
-        type: 'GET',
-      },
-      columns: [
-        { data: '_id', name: '_id' },
-        {
-          data: 'avatar', render: function (data) {
-            return '<img src="' + data + '" class="avatar" width="50" height="50"/>'
-            //return '<img src="image/user_image/' + data + '" class="avatar" width="50" height="50"/>';
-          }
-        },
-        { data: 'name', name: 'name' },
-        { data: 'email', name: 'email' },
-        {
-          data: 'address', render: function (data) {
-            if (data) {
-              return data;
+        columns: [
+          { data: '_id', name: '_id' },
+          {
+            data: 'avatar', render: function (data) {
+              return '<img src="' + data + '" class="avatar" width="50" height="50"/>'
+              //return '<img src="image/user_image/' + data + '" class="avatar" width="50" height="50"/>';
             }
-            else {
-              return "";
+          },
+          { data: 'name', name: 'name' },
+          { data: 'email', name: 'email' },
+          {
+            data: 'address', render: function (data) {
+              if (data) {
+                return data;
+              }
+              else {
+                return "";
+              }
             }
-          }
-        },
-        {
-          data: 'phone', render: function (data) {
-            if (data) {
-              return data;
+          },
+          {
+            data: 'phone', render: function (data) {
+              if (data) {
+                return data;
+              }
+              else {
+                return "";
+              }
             }
-            else {
-              return "";
+          },
+          {
+            data: '_id', render: function (data) {
+              return '<div class="d-flex justify-content-around"><a href="/admin/users/histories/' + data + '"><button class="btn btn-primary">Show</button></a>' +
+                '<button type="button" class="btn btn-danger deleteUser" id="deleteShop" value="' +
+                data +
+                '"><i class="fa fa-trash" aria-hidden="true"></i></button></div>'
+              //return '<img src="image/user_image/' + data + '" class="avatar" width="50" height="50"/>';
             }
+          },
+        ],
+      });
+      $("#products-table").on("click", ".deleteProduct", function (e) {
+        var id = $(this).val();
+        $.ajaxSetup({
+          headers: {
+            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
           }
-        },
-        {
-          data: '_id', render: function (data) {
-            return '<a href="/admin/users/histories/'+data+'"><button class="btn btn-primary">Show</button></a>'
-            //return '<img src="image/user_image/' + data + '" class="avatar" width="50" height="50"/>';
-          }
-        },
-      ],
-    })
-  });
+        });
+        e.preventDefault();
+        $.ajax({
+          url: "/admin/products/" + id,
+          type: "DELETE",
+          data: {
+            // _method: "delete"
+          },
+          dataType: "JSON",
+          success: function (data) {
+            // alert(data.data);
+            console.log(data);
+            $("#products-table")
+              .DataTable()
+              .draw(true);
+          },
+          error: function (data) {
 
+          }
+        })
+      });
+    });
+  })
 </script>

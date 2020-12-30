@@ -108,7 +108,7 @@ app.use("/products", productsRoute);
 app.use("/histories", historyRoute);
 app.use("/admin/users", authAdminMiddleware.requireAuth, adminUserRoute);
 app.use("/admin", adminAuthRoute);
-app.use("/admin/products", authAdminMiddleware.requireAuth, adminProductRoute);
+app.use("/admin/products", adminProductRoute); // authAdminMiddleware.requireAuth,
 const port = process.env.port || 3000;
 
 app.listen(port, () => {
