@@ -80,13 +80,13 @@
                     {{#if this}}
                     {{#each this}}
                     {{#if this.name}}
-                    <p id="productA" class="hidden">{{this._id}}</p>
+                    <p class="productA hidden"  >{{this._id}}</p>
                     <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
                         <figure>
-                            <img src="img/products/{{this.image}}" alt="Image" class="img-fluid tm-gallery-img" />
+                            <img src="img/products/{{this.image}}" alt="Image" class="img-fluid tm-gallery-img" id="img_{{this._id}}" />
                             <figcaption>
-                                <h4 class="tm-gallery-title">{{this.name}}</h4>
-                                <p class="tm-gallery-price">{{this.price}}đ</p>
+                                <h4 class="tm-gallery-title" id="name_{{this._id}}">{{this.name}}</h4>
+                                <p class="tm-gallery-price" id="price_{{this._id}}">{{this.price}}</p>
                                 <a class="add-cart cart1" href="#">Thêm vào</a>
                             </figcaption>
                         </figure>
@@ -104,7 +104,7 @@
                     {{#if this}}
                     {{#each this}}
                     {{#if this.name}}
-                    <p id="productA" class="hidden">{{this._id}}</p>
+                    <p class=" productA hidden">{{this._id}}</p>
                     <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
                         <figure>
                             <img src="img/products/{{this.image}}" alt="Image" class="img-fluid tm-gallery-img" />
@@ -129,15 +129,14 @@
 
                     {{#each this}}
                     {{#if this.name}}
-                    <p id="productA" class="hidden">{{this._id}}</p>
+                    <p class=" productA hidden">{{this._id}}</p>
                     <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
                         <figure>
                             <img src="img/products/{{this.image}}" alt="Image" class="img-fluid tm-gallery-img" />
                             <figcaption>
                                 <h4 class="tm-gallery-title">{{this.name}}</h4>
-
                             </figcaption>
-                            <p class="tm-gallery-price">{{this.price}}đ</p>
+                            <p class="tm-gallery-price">{{this.price}}d</p>
                             <a class="add-cart cart1" href="#">Thêm vào</a>
                         </figure>
                     </article>
@@ -166,7 +165,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>00 Đ
         </main>
 
         <footer class="tm-footer text-center">
