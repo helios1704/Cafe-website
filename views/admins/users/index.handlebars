@@ -17,6 +17,7 @@
                 <th>Address</th>
                 <th>Phone</th>
                 <th>Histories</th>
+                <th>Action</th>
               </tr>
             </thead>
 
@@ -88,6 +89,12 @@
         {
           data: '_id', render: function (data) {
             return '<a href="/admin/users/histories/'+data+'"><button class="btn btn-primary">Show</button></a>'
+            //return '<img src="image/user_image/' + data + '" class="avatar" width="50" height="50"/>';
+          }
+        },
+        {
+          data: '_id', render: function (data) {
+            return '<a href="/admin/users/delete/'+data+'"><button class="btn btn-danger">Delete</button></a>'
             //return '<img src="image/user_image/' + data + '" class="avatar" width="50" height="50"/>';
           }
         },

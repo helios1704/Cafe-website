@@ -9,9 +9,7 @@ route.get("/", controller.index);
 route.get("/data-table", controller.data_table);
 route.get("/histories/:id", controller.showHistories);
 route.get("/histories/id/data-table", controller.data_tableHistories);
-// route.get("/create", controller.create);
-// route.post("/", upload.single("image"), validate.store, controller.store);
-// route.get("/:id", controller.show);
-// route.patch("/:id/update", controller.update);
+
 // route.delete("/:id", controller.delete);
+
 module.exports = route;

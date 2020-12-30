@@ -111,7 +111,7 @@ let products = [
         "category_id": {
           "$oid": "5fb1f51e4555c7062965fc5c"
         }
-      },{
+      },{primary
         "_id": {
           "$oid": "5fe9f1ae153a874c393a7227"
         },
@@ -256,7 +256,7 @@ function displayCart(){
                 <img src="./img/gallery/${item.description}.jpg" class="cart-img">
                 <span class="product-name">${item.name}</span>
             </div>
-            <div class ="price">${item.price},000 Đ</div>
+            <div class ="price">${item.price}Đ</div>
             <div class ="quantity">
                 <ion-icon name="caret-back-circle-outline"></ion-icon>
                 <span>${item.inCart}</span>
