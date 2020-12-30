@@ -47,10 +47,13 @@ module.exports.show = async (req, res) => {
 };
 
 module.exports.update = async (req, res) => {
+  // console.log(req.body)
   const id = req.params.id;
+  console.log(id);
   const updateProduct = req.body;
+  console.log(updateProduct);
   await Product.update({ _id: ObjectId(id) }, { $set: updateProduct });
-  res.redirect("/products");
+  res.redirect("/admin/products");
 };
 
 module.exports.delete = async (req, res) => {

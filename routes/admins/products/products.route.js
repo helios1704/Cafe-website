@@ -10,6 +10,6 @@ route.get("/data-tables", controller.data_table);
 route.get("/create", controller.create);
 route.post("/", upload.single("image"), validate.store, controller.store);
 route.get("/:id", controller.show);
-route.patch("/:id/update", controller.update);
+route.post("/:id/update", controller.update);
 route.delete("/:id", controller.delete);
 module.exports = route;
