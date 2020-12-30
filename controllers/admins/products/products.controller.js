@@ -40,7 +40,8 @@ module.exports.store = async (req, res) => {
 module.exports.show = async (req, res) => {
   const id = req.params.id;
   const product = await Product.findById(id);
-  res.render("products/update", {
+
+  res.render("admins/products/update", {
     product: product,
   });
 };

@@ -11,6 +11,7 @@ const path = require("path");
 dotenv.config();
 // mongoose.connect(process.env.mongo_url);
 mongoose.connect("mongodb://localhost:27017/thuctapcongnhan");
+var Handlebars = require('hbs');
 
 
 
@@ -52,7 +53,9 @@ app.engine(
     partialsDir: path.join(__dirname, "views/admins/partials/"),
   })
 );
-
+Handlebars.registerHelper('json', function (context) {
+  return JSON.stringify(context);
+});
 app.set("view engine", "handlebars");
 app.get("/", (req, res) => {
   var userName = req.cookies.userName;
