@@ -12,13 +12,16 @@ module.exports.index = async (req, res) => {
   histories.forEach(element => bill_id.push(element.bill_id))
   var bills  = await Bill.find({_id:bill_id})
 
+  var i = 0;
   bills.forEach( async (element) => {
     var products =  await Product.find({_id: element.products})
     element.products = products;
+    i++;
+    if(i == bills.length) {
+      res.render("users/histories", {
+        bills: bills,
+        name:userName
+      });
+    }
   },)
- 
-  res.render("users/histories", {
-    bills: bills,
-    name:userName
-  });
 };  
