@@ -15,6 +15,7 @@
                                 <th>Name</th>
                                 <th>Description</th>
                                 <th>Price</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                     </table>
@@ -28,43 +29,82 @@
 {{> footer}}
 
 <script>
-    $(document).ready(function () {
-        $('#products-table').DataTable({
-            drawCallback: function () {
-            },
-            ordering: true,
-            searching: false,
-            pageLength: 5,
-            paging: true,
-            lengthChange: false,
-            autoWidth: false,
-            processing: true,
-            columnDefs: [
-                {
-                    "targets": [0],
-                    "visible": false,
-                    "searchable": false
+    $(function () {
+        $(document).ready(function () {
+            $('#products-table').DataTable({
+                drawCallback: function () {
                 },
-            ],
-            ajax: {
-                data: "json",
-                url: "/admin/products/data-tables",
-                type: 'GET',
-            },
-            columns: [
-                { data: '_id', name: '_id' },
-                {
-                    data: 'image', render: function (data) {
-                        //return '<img src="' + data + '" class="image" width="50" height="50"/>'
-                        return '<img src="../img/products/'+data+'" class="image" style ="width :80px; height:80px"/>'
-                        //return '<img src="image/user_image/' + data + '" class="avatar" width="50" height="50"/>';
-                    }
+                ordering: true,
+                searching: false,
+                pageLength: 5,
+                paging: true,
+                lengthChange: false,
+                autoWidth: false,
+                processing: true,
+                serverSide: true,
+                columnDefs: [
+                    {
+                        "targets": [0],
+                        "visible": false,
+                        "searchable": false
+                    },
+                ],
+                ajax: {
+                    data: "json",
+                    url: "/admin/products/data-tables",
+                    type: 'GET',
                 },
-                { data: 'name', name: 'name' },
-                { data: 'description', name: 'description' },
-                { data: 'price', name: 'price' }
-            ],
-        })
+                columns: [
+                    { data: '_id', name: '_id' },
+                    {
+                        data: 'image', render: function (data) {
+                            //return '<img src="' + data + '" class="image" width="50" height="50"/>'
+                            return '<img src="http://dummyimage.com/196x208.jpg/dddddd/000000" class="image" style ="width :100px; height:100px"/>'
+                            //return '<img src="image/user_image/' + data + '" class="avatar" width="50" height="50"/>';
+                        }
+                    },
+                    { data: 'name', name: 'name' },
+                    { data: 'description', name: 'description' },
+                    { data: 'price', name: 'price' },
+                    {
+                        data: '_id', render: function (data) {
+                            return '<div class="d-flex justify-content-around"><button type="button" class="btn btn-danger deleteProduct" id="deleteShop" value="' +
+                                data +
+                                '"><i class="fa fa-trash" aria-hidden="true"></i></button></div>'
+                            //return '<img src="image/user_image/' + data + '" class="avatar" width="50" height="50"/>';
+                        }
+                    },
+                ],
+            })
+
+        });
+        $("#products-table").on("click", ".deleteProduct", function (e) {
+            var id = $(this).val();
+            $.ajaxSetup({
+                headers: {
+                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
+                }
+            });
+            e.preventDefault();
+            $.ajax({
+                url: "/admin/products/" + id,
+                type: "DELETE",
+                data: {
+                    // _method: "delete"
+                },
+                dataType: "JSON",
+                success: function (data) {
+                    // alert(data.data);
+                    console.log(data);
+                    $("#products-table")
+                        .DataTable()
+                        .draw(true);
+                },
+                error: function (data) {
+
+                }
+            })
+        });
     });
 
 </script>
