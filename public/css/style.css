@@ -54,6 +54,13 @@ html {
   margin-right: 10px;
   margin-bottom: 50px;
 }
+.add-cart:focus,
+.add-cart:hover{
+  text-decoration: none;
+  border-color: 2px solid black;
+  background-color: #5aa15a;
+  cursor: pointer;
+}
 
 .cart ion-icon {
   font-size: 25px;

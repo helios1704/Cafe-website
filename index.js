@@ -11,13 +11,7 @@ const dotenv = require("dotenv");
 const path = require("path");
 dotenv.config();
 // mongoose.connect(process.env.mongo_url);
-const url = process.env.MONGO_URL || "mongodb://localhost:27017/thuctapcongnhan";
-mongoose.connect("mongodb+srv://admin:123@cafe-website.2mvpl.mongodb.net/thuctapcongnhan?retryWrites=true&w=majority", 
-  { useUnifiedTopology: true ,
-  useNewUrlParser:true}
-);
-
-
+mongoose.connect("mongodb://localhost:27017/thuctapcongnhan", { useUnifiedTopology: true ,useNewUrlParser:true});
 
 //models
 var User = require("./models/user.model");

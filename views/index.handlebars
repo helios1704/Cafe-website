@@ -73,7 +73,7 @@
             <div class="row tm-gallery">
                 <!-- gallery page 1 -->
                 {{#each products}}
-                    {{#if this.Cold_Brew}}
+                {{#if this.Cold_Brew}}
                 <div id="tm-gallery-page-coldbrew" class="tm-gallery-page">
                     {{#each this.Cold_Brew}}
                     {{#if this}}
@@ -82,12 +82,11 @@
                     <p id="productA" class="hidden">{{this._id}}</p>
                     <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
                         <figure>
-                            <img src="img/products/{{this.image}}" alt="Image"
-                                class="img-fluid tm-gallery-img" />
+                            <img src="img/products/{{this.image}}" alt="Image" class="img-fluid tm-gallery-img" />
                             <figcaption>
                                 <h4 class="tm-gallery-title">{{this.name}}</h4>
                                 <p class="tm-gallery-price">{{this.price}}đ</p>
-                                <a class="add-cart cart1" href="#">Thêm vào</a>
+                                <a class="add-cart cart1">Thêm vào</a>
                             </figcaption>
                         </figure>
                     </article>
@@ -96,20 +95,18 @@
                     {{/if}}
                     {{/each}}
                 </div> <!-- gallery page 1 -->
-                 {{/if}}
+                {{/if}}
                 <!-- gallery page 2 -->
-                 {{#if this.Matcha}}
+                {{#if this.Matcha}}
                 <div id="tm-gallery-page-matcha" class="tm-gallery-page hidden">
                     {{#each this.Matcha}}
                     {{#if this}}
-                   
                     {{#each this}}
                     {{#if this.name}}
                     <p id="productA" class="hidden">{{this._id}}</p>
                     <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
                         <figure>
-                            <img src="img/products/{{this.image}}" alt="Image"
-                                class="img-fluid tm-gallery-img" />
+                            <img src="img/products/{{this.image}}" alt="Image" class="img-fluid tm-gallery-img" />
                             <figcaption>
                                 <h4 class="tm-gallery-title">{{this.name}}</h4>
                                 <p class="tm-gallery-price">{{this.price}}đ</p>
@@ -122,25 +119,25 @@
                     {{/if}}
                     {{/each}}
                 </div> <!-- gallery page 2 -->
-                 {{/if}}
+                {{/if}}
                 <!-- gallery page 3 -->
                 {{#if this.Coffee}}
                 <div id="tm-gallery-page-coffee" class="tm-gallery-page hidden">
                     {{#each this.Coffee}}
-                     {{#if this}}
-                   
+                    {{#if this}}
+
                     {{#each this}}
                     {{#if this.name}}
-                    <p id="productA" class="hidden">{{this._id}}</p> 
+                    <p id="productA" class="hidden">{{this._id}}</p>
                     <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
                         <figure>
-                            <img src="img/products/{{this.image}}" alt="Image"
-                                class="img-fluid tm-gallery-img" />
+                            <img src="img/products/{{this.image}}" alt="Image" class="img-fluid tm-gallery-img" />
                             <figcaption>
                                 <h4 class="tm-gallery-title">{{this.name}}</h4>
-                                
-                            </figcaption><p class="tm-gallery-price">{{this.price}}đ</p>
-                                <a class="add-cart cart1" href="#">Thêm vào</a>
+
+                            </figcaption>
+                            <p class="tm-gallery-price">{{this.price}}đ</p>
+                            <a class="add-cart cart1" href="#">Thêm vào</a>
                         </figure>
                     </article>
                     {{/if}}
@@ -148,11 +145,11 @@
                     {{/if}}
                     {{/each}}
                 </div> <!-- gallery page 3 -->
-                 {{/if}}
-             
+                {{/if}}
+
                 {{/each}}
-            </div>  
-           
+            </div>
+
             <div class="tm-section tm-container-inner">
                 <div class="row">
                     <div class="col-md-6">
@@ -164,7 +161,7 @@
                         <div class="tm-description-box">
                             <h4 class="tm-gallery-title"></h4>
                             <p class="tm-mb-45">Chúng tôi luôn muốn đem những sản phẩm tốt nhất đến với khách hàng</p>
-                            <a href="about.html" class="tm-btn tm-btn-default tm-right">Read More</a>
+                            <a href="/about" class="tm-btn tm-btn-default tm-right">Read More</a>
                         </div>
                     </div>
                 </div>
