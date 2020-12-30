@@ -9,7 +9,6 @@ route.get("/", controller.index);
 route.get("/data-table", controller.data_table);
 route.get("/histories/:id", controller.showHistories);
 route.get("/histories/id/data-table", controller.data_tableHistories);
-
 // route.delete("/:id", controller.delete);
 
 module.exports = route;

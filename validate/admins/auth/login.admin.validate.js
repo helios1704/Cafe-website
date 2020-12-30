@@ -3,7 +3,7 @@ var User = require('../../../models/user.model');
 var Role = require('../../../models/role.model');
 var bcrypt = require('bcrypt');
 
-module.exports.postLogin = async(req, res, next) => {
+module.exports.postLogin = async (req, res, next) => {
     var arrError = [];
     var user = null;
     var roles = await Role.findOne({ name: "admin" })
