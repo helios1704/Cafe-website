@@ -1,12 +1,173 @@
 
 let carts = document.querySelectorAll(".add-cart");
-let a = document.querySelectorAll("#productA");
-var products =[];
-console.log(a)
-a.forEach(element => {
-    products.push(element.innerHTML);
-});
-console.log(products);
+let products = [
+    {
+        "_id": {
+          "$oid": "5fe9f1ae153a874c393a721d"
+        },
+        "name": "Cold brew truyền thống",
+        "image": "coldbrewtruyenthong.jpg",
+        "description": "coldbrewtruyenthong",
+        "price": 45000,
+        "category_id": {
+          "$oid": "5fb1f5584555c7062965fc6a"
+        }
+      },{
+        "_id": {
+          "$oid": "5fe9f1ae153a874c393a721e"
+        },
+        "name": "Cold brew cam vàng",
+        "image": "coldbrewcamvang.jpg",
+        "description": "coldbrewcamvang",
+        "price": 50000,
+        "category_id": {
+          "$oid": "5fb1f5584555c7062965fc6a"
+        }
+      },{
+        "_id": {
+          "$oid": "5fe9f1ae153a874c393a721f"
+        },
+        "name": "Cold brew sữa tươi Macchiato",
+        "image": "coldbrewsuatuoimacchiato.jpg",
+        "description": "coldbrewsuatuoimacchiato",
+        "price": 50000,
+        "category_id": {
+          "$oid": "5fb1f5584555c7062965fc6a"
+        }
+      },{
+        "_id": {
+          "$oid": "5fe9f1ae153a874c393a7220"
+        },
+        "name": "Cold brew phúc bồn tử",
+        "image": "coldbrewphucbontu.jpg",
+        "description": "coldbrewphucbontu",
+        "price": 50000,
+        "category_id": {
+          "$oid": "5fb1f5584555c7062965fc6a"
+        }
+      },{
+        "_id": {
+          "$oid": "5fe9f1ae153a874c393a7221"
+        },
+        "name": "Cold brew sữa tươi",
+        "image": "coldbrewsuatuoi.jpg",
+        "description": "coldbrewsuatuoi",
+        "price": 50000,
+        "category_id": {
+          "$oid": "5fb1f5584555c7062965fc6a"
+        }
+      },{
+        "_id": {
+          "$oid": "5fe9f1ae153a874c393a7222"
+        },
+        "name": "Socola đá",
+        "image": "socolada.jpg",
+        "description": "socolada",
+        "price": 55000,
+        "category_id": {
+          "$oid": "5fe9e390153a874c393a71f4"
+        }
+      },{
+        "_id": {
+          "$oid": "5fe9f1ae153a874c393a7223"
+        },
+        "name": "Socola đá xay",
+        "image": "socoladaxay.jpg",
+        "description": "socoladaxay",
+        "price": 59000,
+        "category_id": {
+          "$oid": "5fe9e390153a874c393a71f4"
+        }
+      },{
+        "_id": {
+          "$oid": "5fe9f1ae153a874c393a7224"
+        },
+        "name": "Matcha đá xay",
+        "image": "matchadaxay.jpg",
+        "description": "matchadaxay",
+        "price": 59000,
+        "category_id": {
+          "$oid": "5fe9e390153a874c393a71f4"
+        }
+      },{
+        "_id": {
+          "$oid": "5fe9f1ae153a874c393a7225"
+        },
+        "name": "Matcha latte",
+        "image": "matchalatte.jpg",
+        "description": "matchalatte",
+        "price": 59000,
+        "category_id": {
+          "$oid": "5fe9e390153a874c393a71f4"
+        }
+      },{
+        "_id": {
+          "$oid": "5fe9f1ae153a874c393a7226"
+        },
+        "name": "Americano",
+        "image": "americano.jpg",
+        "description": "americano",
+        "price": 39000,
+        "category_id": {
+          "$oid": "5fb1f51e4555c7062965fc5c"
+        }
+      },{
+        "_id": {
+          "$oid": "5fe9f1ae153a874c393a7227"
+        },
+        "name": "Cappucchino",
+        "image": "cappuchino.jpg",
+        "description": "cappucchino",
+        "price": 45000,
+        "category_id": {
+          "$oid": "5fb1f51e4555c7062965fc5c"
+        }
+      },{
+        "_id": {
+          "$oid": "5fe9f1ae153a874c393a7228"
+        },
+        "name": "Caramel Macchiato",
+        "image": "caramelmacchiato.jpg",
+        "description": "caramelmacchiato",
+        "price": 55000,
+        "category_id": {
+          "$oid": "5fb1f51e4555c7062965fc5c"
+        }
+      },{
+        "_id": {
+          "$oid": "5fe9f1ae153a874c393a7229"
+        },
+        "name": "Espresso",
+        "image": "espresso.jpg",
+        "description": "espresso",
+        "price": 35000,
+        "category_id": {
+          "$oid": "5fb1f51e4555c7062965fc5c"
+        }
+      },{
+        "_id": {
+          "$oid": "5fe9f1ae153a874c393a722a"
+        },
+        "name": "Latte",
+        "image": "latte.jpg",
+        "description": "latte",
+        "price": 45000,
+        "category_id": {
+          "$oid": "5fb1f51e4555c7062965fc5c"
+        }
+      },{
+        "_id": {
+          "$oid": "5fe9f1ae153a874c393a722b"
+        },
+        "name": "Mocha",
+        "image": "mocha.jpg",
+        "description": "mocha",
+        "price": 49000,
+        "category_id": {
+          "$oid": "5fb1f51e4555c7062965fc5c"
+        }
+      }
+    ];
 
 // async function getData() {
 //     let response = await fetch('data.json');
@@ -40,25 +201,28 @@ function cartNumbers(product){
         localStorage.setItem('cartNumbers', 1);
         document.querySelector('.cart span').textContent = 1;
     }
+
     setItems(product);
 }
 
 function setItems(product){
+
     let cartItems = localStorage.getItem('productsInCart');
     cartItems = JSON.parse(cartItems);
+
     if (cartItems != null){
-        if(cartItems[product.tag] == undefined){
+        if(cartItems[product.description] == undefined){
             cartItems = {
                 ...cartItems,
-                [product.tag] : product
+                [product.description] : product
             }
         }
-        cartItems[product.tag].inCart += 1;
+        cartItems[product.description].inCart += 1;
     }
     else {
         product.inCart = 1;
         cartItems = {
-            [product.tag] : product
+            [product.description] : product
         }
     }
     console.log(cartItems);
@@ -89,7 +253,7 @@ function displayCart(){
             productContainer.innerHTML += `
             <div class ="product">
                 <ion-icon name="close-circle"></ion-icon>
-                <img src="./img/gallery/${item.tag}.jpg" class="cart-img">
+                <img src="./img/gallery/${item.description}.jpg" class="cart-img">
                 <span class="product-name">${item.name}</span>
             </div>
             <div class ="price">${item.price},000 Đ</div>
@@ -99,7 +263,7 @@ function displayCart(){
                 <ion-icon name="caret-forward-circle-outline"></ion-icon>
             </div>
             <div class ="total">
-                ${item.inCart * item.price},000 Đ
+                ${item.inCart * item.price}Đ
             </div>
             `;
         })
@@ -109,7 +273,7 @@ function displayCart(){
                 Tổng
             </h4>
             <h4 class="basketTotalTitle">
-                ${cartCost},000 Đồng
+                ${cartCost} Đồng
             </h4>
         </div>
         `
